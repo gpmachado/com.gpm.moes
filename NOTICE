@@ -1,0 +1,27 @@
+Moes (com.gpm.moes)
+Copyright (c) 2026 Gabriel Pedrosa Machado
+
+This program is free software: you can redistribute it and/or modify it under
+the terms of the MIT License. See the LICENSE file for the full text.
+
+--------------------------------------------------------------------------------
+Incorporated / derived work
+--------------------------------------------------------------------------------
+
+moes_dimmer_3_gang uses a shared Tuya EF00 datapoint base (generic
+cluster/device classes for talking to Tuya's manufacturer-specific cluster)
+derived from:
+
+- JohanBendz/com.tuya.zigbee — MIT License, Copyright (c) 2020-2024 Johan Bendz
+  https://github.com/JohanBendz/com.tuya.zigbee
+
+Johan Bendz's project does not include a 3-gang Moes dimmer driver (his
+closest equivalent is 2-gang); the datapoint map, per-gang sub-device logic,
+fan-speed handling, debounce/motor-protection logic, and settings for this
+specific device were written independently, based on sniffer captures of the
+actual hardware (_TZE204_1v1dxkck / TS0601).
+
+moes_radar_sensor_mmwave (Linptech mmWave presence sensor, TS0225) is
+original work with no third-party code: reverse-engineered from scratch via
+Zigbee sniffer captures (CC2531 + Wireshark) and protocol analysis on
+hardware owned by the author.

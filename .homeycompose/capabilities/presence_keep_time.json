@@ -1,0 +1,23 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Presence time",
+    "de": "Präsenzzeit",
+    "es": "Tiempo de presencia",
+    "it": "Tempo di presenza"
+  },
+  "units": {
+    "en": "min",
+    "de": "min",
+    "es": "min",
+    "it": "min"
+  },
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "icon": "/drivers/moes_radar_sensor_mmwave/assets/presence_keep_time.svg",
+  "insights": true,
+  "decimals": 0,
+  "min": 0,
+  "max": 1440
+}

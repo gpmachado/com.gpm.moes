@@ -1,0 +1,60 @@
+{
+  "id": "com.gpm.moes",
+  "version": "1.0.0",
+  "compatibility": ">=12.4.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "Moes",
+    "es": "Moes",
+    "it": "Moes",
+    "de": "Moes"
+  },
+  "description": {
+    "en": "Moes Zigbee devices: 3-gang fan/dimmer controller and mmWave radar presence sensor (Linptech)",
+    "es": "Dispositivos Zigbee Moes: controlador regulador/ventilador de 3 canales y sensor de presencia radar mmWave (Linptech)",
+    "it": "Dispositivi Zigbee Moes: controller dimmer/ventilatore a 3 canali e sensore di presenza radar mmWave (Linptech)",
+    "de": "Moes Zigbee-Geräte: 3-fach Lüfter-/Dimmer-Regler und mmWave-Radar-Präsenzsensor (Linptech)"
+  },
+  "category": [
+    "appliances"
+  ],
+  "tags": {
+    "en": ["zigbee", "moes", "linptech", "dimmer", "fan controller", "radar", "presence", "mmwave", "sensor"],
+    "es": ["zigbee", "moes", "linptech", "atenuador", "controlador de ventilador", "radar", "presencia", "mmwave", "sensor"],
+    "it": ["zigbee", "moes", "linptech", "dimmer", "regolatore ventilatore", "radar", "presenza", "mmwave", "sensore"],
+    "de": ["zigbee", "moes", "linptech", "dimmer", "lüfterregler", "radar", "präsenz", "mmwave", "sensor"]
+  },
+  "brandColor": "#BAA586",
+  "support": "mailto:g.machado@me.com",
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Gabriel Pedrosa Machado",
+    "email": "g.machado@me.com"
+  },
+  "api": {
+    "getMessageStats": {
+      "method": "GET",
+      "path": "/message-stats"
+    },
+    "resetMessageStats": {
+      "method": "POST",
+      "path": "/message-stats/reset"
+    },
+    "resetRejoinStats": {
+      "method": "POST",
+      "path": "/rejoin-stats/reset"
+    }
+  },
+  "dependencies": {
+    "homey-zigbeedriver": "^2.2.17",
+    "zigbee-clusters": "^3.6.1"
+  }
+}

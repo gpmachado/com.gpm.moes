@@ -1,0 +1,53 @@
+{
+  "id": "moes_radar_sensor_mmwave",
+  "name": {
+    "en": "Radar Sensor Moes (Linptech)",
+    "de": "Radar-Sensor Moes (Linptech)",
+    "es": "Sensor radar Moes (Linptech)",
+    "it": "Sensore radar Moes (Linptech)"
+  },
+  "class": "sensor",
+  "platforms": ["local"],
+  "connectivity": ["zigbee"],
+  "capabilities": [
+    "alarm_occupancy",
+    "measure_luminance",
+    "measure_distance",
+    "presence_keep_time"
+  ],
+  "images": {
+    "xlarge": "{{driverAssetsPath}}/images/xlarge.png",
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
+  },
+  "energy": {
+    "approximation": {
+      "usageOn": 0,
+      "usageOff": 0
+    }
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TZ3218_t9ynfz4x",
+      "_TZ3218_awarhusb"
+    ],
+    "productId": [
+      "TS0225"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [0, 3, 4, 5, 1024, 57346, 16384, 61184, 1280],
+        "bindings": [3, 1024, 57346, 61184, 1280]
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/icon.svg",
+      "instruction": {
+        "en": "Press and hold the reset button for 5 seconds. When the indicator light flashes it is in pairing mode.",
+        "de": "Halte die Reset-Taste 5 Sekunden lang gedrückt. Wenn die Kontrollleuchte blinkt, befindet sich das Gerät im Kopplungsmodus.",
+        "es": "Mantén pulsado el botón de reinicio durante 5 segundos. Cuando la luz indicadora parpadea, está en modo de emparejamiento.",
+        "it": "Tieni premuto il pulsante di reset per 5 secondi. Quando la spia lampeggia, il dispositivo è in modalità associazione."
+      }
+    }
+  }
+}

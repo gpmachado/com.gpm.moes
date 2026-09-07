@@ -1,7 +1,6 @@
 'use strict';
 
 const TuyaSpecificClusterDevice = require('../../lib/TuyaSpecificClusterDevice');
-const { AvailabilityManagerPassive } = require('../../lib/AvailabilityManager');
 const RejoinManager = require('../../lib/RejoinManager');
 const { TimeServerBoundCluster } = require('../../lib/TimeCluster');
 const { APP_VERSION } = require('../../lib/constants');
@@ -83,10 +82,6 @@ class MoesDimmer3Gang extends TuyaSpecificClusterDevice {
 
     // Tuya cluster listeners are shared — attach only once, on the main device
     if (this._isMain) {
-      this._availability = new AvailabilityManagerPassive(this, {
-        timeout: require('../../lib/constants').HEARTBEAT_FAST_MS,
-      });
-      await this._availability.install();
       this._setupTuyaListeners(zclNode);
       try { zclNode.endpoints[1].bind('time', new TimeServerBoundCluster()); } catch {}
     }

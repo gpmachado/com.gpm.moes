@@ -4,13 +4,15 @@
     "en": "Presence time",
     "de": "Präsenzzeit",
     "es": "Tiempo de presencia",
-    "it": "Tempo di presenza"
+    "it": "Tempo di presenza",
+    "fr": "Temps de présence"
   },
   "units": {
     "en": "min",
     "de": "min",
     "es": "min",
-    "it": "min"
+    "it": "min",
+    "fr": "min"
   },
   "getable": true,
   "setable": false,

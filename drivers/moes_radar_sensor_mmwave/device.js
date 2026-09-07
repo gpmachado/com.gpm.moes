@@ -1,7 +1,6 @@
 'use strict';
 
 const TuyaSpecificClusterDevice = require('../../lib/TuyaSpecificClusterDevice');
-const { AvailabilityManagerPassive } = require('../../lib/AvailabilityManager');
 const RejoinManager = require('../../lib/RejoinManager');
 const { TimeServerBoundCluster } = require('../../lib/TimeCluster');
 const IASZoneHelper = require('../../lib/IASZoneHelper');
@@ -45,11 +44,6 @@ class RadarSensorMmwaveDevice extends TuyaSpecificClusterDevice {
     this._presenceKeepTime = null;
     this._occupied = null;
 
-    this._availability = new AvailabilityManagerPassive(this, {
-      timeout: 12 * 60 * 60 * 1000,
-      pollBeforeOffline: false,
-    });
-    await this._availability.install();
     await RejoinManager.watchAnnounceFrame(this);
 
     const ep = this.zclNode?.endpoints?.[this.tuyaEndpoint];
@@ -333,11 +327,7 @@ class RadarSensorMmwaveDevice extends TuyaSpecificClusterDevice {
 
   async _refreshStatsLabel() {
     try {
-      const stats = this._availability?.getMessageStats?.() || {};
       const uptime = Math.round((Date.now() - this._initAt) / 360000) / 10;
-      const lastMsg = stats.lastMessageAt
-        ? Math.round((Date.now() - stats.lastMessageAt) / 60000)
-        : null;
 
       const topErrors = Object.entries(this._errorsByDp)
         .sort((a, b) => b[1] - a[1])
@@ -346,11 +336,9 @@ class RadarSensorMmwaveDevice extends TuyaSpecificClusterDevice {
         .join(', ');
 
       const display = [
-        `Msg: ${stats.last24h || 0}/24h (${stats.averagePerHour || 0}/h)`,
         this._lastTargetDistance != null ? `Dist: ${this._lastTargetDistance}cm` : '',
         this._presenceKeepTime != null ? `Pres: ${this._presenceKeepTime}min` : '',
         `Err: ${this._errorCount}${topErrors ? ` [${topErrors}]` : ''}`,
-        lastMsg != null ? `Last: ${lastMsg}min ago` : 'Last: never',
         `Up: ${uptime}h`,
       ].filter(Boolean).join(' | ');
 

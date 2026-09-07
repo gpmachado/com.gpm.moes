@@ -11,13 +11,15 @@
     "en": "Moes Devices",
     "es": "Moes Devices",
     "it": "Moes Devices",
-    "de": "Moes Devices"
+    "de": "Moes Devices",
+    "fr": "Moes Devices"
   },
   "description": {
     "en": "Moes Zigbee devices: 3-gang fan/dimmer controller and mmWave radar presence sensor (Linptech)",
     "es": "Dispositivos Zigbee Moes: controlador regulador/ventilador de 3 canales y sensor de presencia radar mmWave (Linptech)",
     "it": "Dispositivi Zigbee Moes: controller dimmer/ventilatore a 3 canali e sensore di presenza radar mmWave (Linptech)",
-    "de": "Moes Zigbee-Geräte: 3-fach Lüfter-/Dimmer-Regler und mmWave-Radar-Präsenzsensor (Linptech)"
+    "de": "Moes Zigbee-Geräte: 3-fach Lüfter-/Dimmer-Regler und mmWave-Radar-Präsenzsensor (Linptech)",
+    "fr": "Appareils Zigbee Moes : contrôleur de ventilateur/variateur à 3 canaux et capteur de présence radar mmWave (Linptech)"
   },
   "category": [
     "appliances"
@@ -66,6 +68,17 @@
       "präsenz",
       "mmwave",
       "sensor"
+    ],
+    "fr": [
+      "zigbee",
+      "moes",
+      "linptech",
+      "variateur",
+      "contrôleur de ventilateur",
+      "radar",
+      "présence",
+      "mmwave",
+      "capteur"
     ]
   },
   "brandColor": "#BAA586",
@@ -81,13 +94,9 @@
     "email": "g.machado@me.com"
   },
   "api": {
-    "getMessageStats": {
+    "getRejoinStats": {
       "method": "GET",
-      "path": "/message-stats"
-    },
-    "resetMessageStats": {
-      "method": "POST",
-      "path": "/message-stats/reset"
+      "path": "/rejoin-stats"
     },
     "resetRejoinStats": {
       "method": "POST",
@@ -99,138 +108,22 @@
     "zigbee-clusters": "^3.6.1"
   },
   "flow": {
-    "conditions": [
-      {
-        "id": "availability_is_on",
-        "title": {
-          "en": "Availability is on",
-          "es": "Disponibilidad activada",
-          "it": "Disponibilità attiva",
-          "de": "Verfügbarkeit ist aktiv"
-        },
-        "titleFormatted": {
-          "en": "[[device]] is available",
-          "es": "[[device]] está disponible",
-          "it": "[[device]] è disponibile",
-          "de": "[[device]] ist verfügbar"
-        },
-        "hint": {
-          "en": "True when the device is currently online",
-          "es": "Verdadero cuando el dispositivo está actualmente en línea",
-          "it": "Vero quando il dispositivo è attualmente online",
-          "de": "Wahr, wenn das Gerät aktuell online ist"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "capabilities=is_availability"
-          }
-        ]
-      }
-    ],
     "triggers": [
-      {
-        "id": "moes_dimmer_3_gang_availability_turned_on",
-        "title": {
-          "en": "Became available",
-          "de": "Wurde verfügbar",
-          "es": "Pasó a estar disponible",
-          "it": "Disponibile"
-        },
-        "hint": {
-          "en": "Fires when this device becomes available.",
-          "de": "Wird ausgelöst, wenn dieses Gerät verfügbar wird.",
-          "es": "Se activa cuando este dispositivo pasa a estar disponible.",
-          "it": "Si attiva quando questo dispositivo diventa disponibile."
-        },
-        "tokens": [
-          {
-            "name": "device_name",
-            "type": "string",
-            "title": {
-              "en": "Device name",
-              "de": "Gerätename",
-              "es": "Nombre del dispositivo",
-              "it": "Nome del dispositivo"
-            }
-          },
-          {
-            "name": "timestamp",
-            "type": "string",
-            "title": {
-              "en": "Timestamp",
-              "de": "Zeitstempel",
-              "es": "Marca de tiempo",
-              "it": "Data e ora"
-            }
-          }
-        ],
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=moes_dimmer_3_gang"
-          }
-        ]
-      },
-      {
-        "id": "moes_dimmer_3_gang_availability_turned_off",
-        "title": {
-          "en": "Became unavailable",
-          "de": "Wurde nicht verfügbar",
-          "es": "Pasó a no estar disponible",
-          "it": "Non più disponibile"
-        },
-        "hint": {
-          "en": "Fires when this device becomes unavailable.",
-          "de": "Wird ausgelöst, wenn dieses Gerät nicht mehr verfügbar ist.",
-          "es": "Se activa cuando este dispositivo deja de estar disponible.",
-          "it": "Si attiva quando questo dispositivo non è più disponibile."
-        },
-        "tokens": [
-          {
-            "name": "device_name",
-            "type": "string",
-            "title": {
-              "en": "Device name",
-              "de": "Gerätename",
-              "es": "Nombre del dispositivo",
-              "it": "Nome del dispositivo"
-            }
-          },
-          {
-            "name": "timestamp",
-            "type": "string",
-            "title": {
-              "en": "Timestamp",
-              "de": "Zeitstempel",
-              "es": "Marca de tiempo",
-              "it": "Data e ora"
-            }
-          }
-        ],
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=moes_dimmer_3_gang"
-          }
-        ]
-      },
       {
         "id": "moes_dimmer_3_gang_device_rejoined",
         "title": {
           "en": "Reconnected after power cut",
           "de": "Nach Stromausfall wieder verbunden",
           "es": "Reconectado tras un corte de energía",
-          "it": "Riconnesso dopo un'interruzione di corrente"
+          "it": "Riconnesso dopo un'interruzione di corrente",
+          "fr": "Reconnecté après une coupure de courant"
         },
         "hint": {
           "en": "Fires when this device reconnects to the Zigbee network after a power cut.",
           "de": "Wird ausgelöst, wenn sich dieses Gerät nach einem Stromausfall erneut mit dem Zigbee-Netzwerk verbindet.",
           "es": "Se activa cuando este dispositivo se reconecta a la red Zigbee tras un corte de energía.",
-          "it": "Si attiva quando questo dispositivo si riconnette alla rete Zigbee dopo un'interruzione di corrente."
+          "it": "Si attiva quando questo dispositivo si riconnette alla rete Zigbee dopo un'interruzione di corrente.",
+          "fr": "Se déclenche lorsque cet appareil se reconnecte au réseau Zigbee après une coupure de courant."
         },
         "args": [
           {
@@ -246,13 +139,15 @@
           "en": "Reconnected after power cut",
           "de": "Nach Stromausfall wieder verbunden",
           "es": "Reconectado tras un corte de energía",
-          "it": "Riconnesso dopo un'interruzione di corrente"
+          "it": "Riconnesso dopo un'interruzione di corrente",
+          "fr": "Reconnecté après une coupure de courant"
         },
         "hint": {
           "en": "Fires when this device reconnects to the Zigbee network after a power cut.",
           "de": "Wird ausgelöst, wenn sich dieses Gerät nach einem Stromausfall erneut mit dem Zigbee-Netzwerk verbindet.",
           "es": "Se activa cuando este dispositivo se reconecta a la red Zigbee tras un corte de energía.",
-          "it": "Si attiva quando questo dispositivo si riconnette alla rete Zigbee dopo un'interruzione di corrente."
+          "it": "Si attiva quando questo dispositivo si riconnette alla rete Zigbee dopo un'interruzione di corrente.",
+          "fr": "Se déclenche lorsque cet appareil se reconnecte au réseau Zigbee après une coupure de courant."
         },
         "args": [
           {
@@ -282,13 +177,13 @@
         "en": "Moes Dimmer 3 Gang",
         "es": "Regulador Moes 3 canales",
         "it": "Dimmer Moes 3 canali",
-        "de": "Moes Dimmer 3-fach"
+        "de": "Moes Dimmer 3-fach",
+        "fr": "Variateur Moes 3 canaux"
       },
       "class": "socket",
       "capabilities": [
         "onoff",
-        "dim",
-        "is_availability"
+        "dim"
       ],
       "capabilitiesOptions": {
         "dim": {
@@ -299,13 +194,15 @@
             "en": "Fan Speed",
             "es": "Velocidad del ventilador",
             "it": "Velocità ventilatore",
-            "de": "Lüftergeschwindigkeit"
+            "de": "Lüftergeschwindigkeit",
+            "fr": "Vitesse du ventilateur"
           },
           "units": {
             "en": "%",
             "es": "%",
             "it": "%",
-            "de": "%"
+            "de": "%",
+            "fr": "%"
           }
         }
       },
@@ -323,13 +220,15 @@
             "en": "Connected Controllers",
             "es": "Controladores conectados",
             "it": "Controller collegati",
-            "de": "Verbundene Regler"
+            "de": "Verbundene Regler",
+            "fr": "Contrôleurs connectés"
           },
           "hint": {
             "en": "Other fan controllers sharing this physical device",
             "es": "Otros controladores de ventilador que comparten este dispositivo",
             "it": "Altri controller del ventilatore che condividono questo dispositivo",
-            "de": "Andere Lüftungsregler, die dieses physische Gerät teilen"
+            "de": "Andere Lüftungsregler, die dieses physische Gerät teilen",
+            "fr": "Autres contrôleurs de ventilateur partageant cet appareil physique"
           },
           "value": "-"
         },
@@ -339,7 +238,8 @@
             "en": "Speed Control",
             "es": "Control de velocidad",
             "it": "Controllo velocità",
-            "de": "Geschwindigkeitsregelung"
+            "de": "Geschwindigkeitsregelung",
+            "fr": "Contrôle de la vitesse"
           },
           "children": [
             {
@@ -349,13 +249,15 @@
                 "en": "Min Speed",
                 "es": "Velocidad mínima",
                 "it": "Velocità minima",
-                "de": "Mindestgeschwindigkeit"
+                "de": "Mindestgeschwindigkeit",
+                "fr": "Vitesse min."
               },
               "hint": {
                 "en": "Hardware-enforced minimum fan speed (1–46%). Written directly to device.",
                 "es": "Velocidad mínima del ventilador impuesta por hardware (1–46%). Se escribe directamente en el dispositivo.",
                 "it": "Velocità minima del ventilatore imposta dall'hardware (1–46%). Scritta direttamente sul dispositivo.",
-                "de": "Hardware-erzwungene Mindestlüftergeschwindigkeit (1–46 %). Direkt auf das Gerät geschrieben."
+                "de": "Hardware-erzwungene Mindestlüftergeschwindigkeit (1–46 %). Direkt auf das Gerät geschrieben.",
+                "fr": "Vitesse minimale du ventilateur imposée par le matériel (1-46 %). Écrite directement sur l'appareil."
               },
               "value": 10,
               "min": 1,
@@ -370,13 +272,15 @@
                 "en": "Max Speed",
                 "es": "Velocidad máxima",
                 "it": "Velocità massima",
-                "de": "Höchstgeschwindigkeit"
+                "de": "Höchstgeschwindigkeit",
+                "fr": "Vitesse max."
               },
               "hint": {
                 "en": "Hardware-enforced maximum fan speed (56–100%). Written directly to device.",
                 "es": "Velocidad máxima del ventilador impuesta por hardware (56–100%). Se escribe directamente en el dispositivo.",
                 "it": "Velocità massima del ventilatore imposta dall'hardware (56–100%). Scritta direttamente sul dispositivo.",
-                "de": "Hardware-erzwungene Höchstlüftergeschwindigkeit (56–100 %). Direkt auf das Gerät geschrieben."
+                "de": "Hardware-erzwungene Höchstlüftergeschwindigkeit (56–100 %). Direkt auf das Gerät geschrieben.",
+                "fr": "Vitesse maximale du ventilateur imposée par le matériel (56-100 %). Écrite directement sur l'appareil."
               },
               "value": 100,
               "min": 56,
@@ -392,7 +296,8 @@
             "en": "Performance & Protection",
             "es": "Rendimiento y protección",
             "it": "Prestazioni e protezione",
-            "de": "Leistung und Schutz"
+            "de": "Leistung und Schutz",
+            "fr": "Performance et protection"
           },
           "children": [
             {
@@ -402,13 +307,15 @@
                 "en": "Enable Debouncing",
                 "es": "Activar antirrebote",
                 "it": "Abilita antirimbalzo",
-                "de": "Entprellung aktivieren"
+                "de": "Entprellung aktivieren",
+                "fr": "Activer l'anti-rebond"
               },
               "hint": {
                 "en": "Reduces motor stress and network traffic during rapid speed changes",
                 "es": "Reduce el estrés del motor y el tráfico de red durante cambios rápidos de velocidad",
                 "it": "Riduce lo stress del motore e il traffico di rete durante cambi rapidi di velocità",
-                "de": "Reduziert Motorbelastung und Netzwerkverkehr bei schnellen Geschwindigkeitsänderungen"
+                "de": "Reduziert Motorbelastung und Netzwerkverkehr bei schnellen Geschwindigkeitsänderungen",
+                "fr": "Réduit la contrainte sur le moteur et le trafic réseau lors de changements rapides de vitesse"
               },
               "value": true
             },
@@ -419,13 +326,15 @@
                 "en": "Debounce Delay",
                 "es": "Retardo antirrebote",
                 "it": "Ritardo antirimbalzo",
-                "de": "Entprellverzögerung"
+                "de": "Entprellverzögerung",
+                "fr": "Délai d'anti-rebond"
               },
               "hint": {
                 "en": "Wait time before applying speed changes (ms)",
                 "es": "Tiempo de espera antes de aplicar cambios de velocidad (ms)",
                 "it": "Tempo di attesa prima di applicare i cambi di velocità (ms)",
-                "de": "Wartezeit vor dem Anwenden von Geschwindigkeitsänderungen (ms)"
+                "de": "Wartezeit vor dem Anwenden von Geschwindigkeitsänderungen (ms)",
+                "fr": "Temps d'attente avant d'appliquer les changements de vitesse (ms)"
               },
               "value": 800,
               "min": 0,
@@ -440,13 +349,15 @@
                 "en": "Motor Protection",
                 "es": "Protección del motor",
                 "it": "Protezione motore",
-                "de": "Motorschutz"
+                "de": "Motorschutz",
+                "fr": "Protection du moteur"
               },
               "hint": {
                 "en": "Adds startup delay to prevent motor stress. Disable for LED dimmers",
                 "es": "Añade un retardo de arranque para evitar el estrés del motor. Desactivar para atenuadores LED",
                 "it": "Aggiunge un ritardo di avvio per prevenire lo stress del motore. Disabilita per dimmer LED",
-                "de": "Fügt eine Anlaufverzögerung hinzu, um Motorbelastung zu vermeiden. Für LED-Dimmer deaktivieren"
+                "de": "Fügt eine Anlaufverzögerung hinzu, um Motorbelastung zu vermeiden. Für LED-Dimmer deaktivieren",
+                "fr": "Ajoute un délai de démarrage pour éviter la contrainte sur le moteur. À désactiver pour les variateurs LED"
               },
               "value": true
             },
@@ -457,13 +368,15 @@
                 "en": "Motor Startup Delay",
                 "es": "Retardo de arranque del motor",
                 "it": "Ritardo avvio motore",
-                "de": "Motoranlaufverzögerung"
+                "de": "Motoranlaufverzögerung",
+                "fr": "Délai de démarrage du moteur"
               },
               "hint": {
                 "en": "Delay between setting speed and powering on motor (ms)",
                 "es": "Retardo entre ajustar la velocidad y encender el motor (ms)",
                 "it": "Ritardo tra l'impostazione della velocità e l'accensione del motore (ms)",
-                "de": "Verzögerung zwischen Geschwindigkeitseinstellung und Motorstart (ms)"
+                "de": "Verzögerung zwischen Geschwindigkeitseinstellung und Motorstart (ms)",
+                "fr": "Délai entre le réglage de la vitesse et la mise sous tension du moteur (ms)"
               },
               "value": 1500,
               "min": 0,
@@ -479,7 +392,8 @@
             "en": "Global Settings",
             "es": "Ajustes globales",
             "it": "Impostazioni globali",
-            "de": "Globale Einstellungen"
+            "de": "Globale Einstellungen",
+            "fr": "Réglages globaux"
           },
           "children": [
             {
@@ -489,13 +403,15 @@
                 "en": "Power-On Behavior (All Gangs)",
                 "es": "Comportamiento al encender (todos los grupos)",
                 "it": "Comportamento all'accensione (tutti i gruppi)",
-                "de": "Einschaltverhalten (alle Gruppen)"
+                "de": "Einschaltverhalten (alle Gruppen)",
+                "fr": "Comportement à la mise sous tension (tous les canaux)"
               },
               "hint": {
                 "en": "Controls all 3 gangs after power outage",
                 "es": "Controla los 3 grupos tras un corte de luz",
                 "it": "Controlla tutti e 3 i gruppi dopo un'interruzione di corrente",
-                "de": "Steuert alle 3 Gruppen nach einem Stromausfall"
+                "de": "Steuert alle 3 Gruppen nach einem Stromausfall",
+                "fr": "Contrôle les 3 canaux après une coupure de courant"
               },
               "value": "memory",
               "values": [
@@ -505,7 +421,8 @@
                     "en": "Always Off",
                     "es": "Siempre apagado",
                     "it": "Sempre spento",
-                    "de": "Immer aus"
+                    "de": "Immer aus",
+                    "fr": "Toujours éteint"
                   }
                 },
                 {
@@ -514,7 +431,8 @@
                     "en": "Always On",
                     "es": "Siempre encendido",
                     "it": "Sempre acceso",
-                    "de": "Immer ein"
+                    "de": "Immer ein",
+                    "fr": "Toujours allumé"
                   }
                 },
                 {
@@ -523,7 +441,8 @@
                     "en": "Remember State",
                     "es": "Recordar estado",
                     "it": "Ricorda stato",
-                    "de": "Zustand merken"
+                    "de": "Zustand merken",
+                    "fr": "Mémoriser l'état"
                   }
                 }
               ]
@@ -535,13 +454,15 @@
                 "en": "LED Mode (All Gangs)",
                 "es": "Modo LED (todos los grupos)",
                 "it": "Modalità LED (tutti i gruppi)",
-                "de": "LED-Modus (alle Gruppen)"
+                "de": "LED-Modus (alle Gruppen)",
+                "fr": "Mode LED (tous les canaux)"
               },
               "hint": {
                 "en": "Status LED behavior for all 3 gangs",
                 "es": "Comportamiento del LED de estado para los 3 grupos",
                 "it": "Comportamento del LED di stato per tutti e 3 i gruppi",
-                "de": "Status-LED-Verhalten für alle 3 Gruppen"
+                "de": "Status-LED-Verhalten für alle 3 Gruppen",
+                "fr": "Comportement de la LED d'état pour les 3 canaux"
               },
               "value": "normal",
               "values": [
@@ -551,7 +472,8 @@
                     "en": "Always Off",
                     "es": "Siempre apagado",
                     "it": "Sempre spento",
-                    "de": "Immer aus"
+                    "de": "Immer aus",
+                    "fr": "Toujours éteint"
                   }
                 },
                 {
@@ -560,7 +482,8 @@
                     "en": "On when running",
                     "es": "Encendido cuando en marcha",
                     "it": "Acceso quando in funzione",
-                    "de": "Ein bei Betrieb"
+                    "de": "Ein bei Betrieb",
+                    "fr": "Allumée en fonctionnement"
                   }
                 },
                 {
@@ -569,7 +492,8 @@
                     "en": "On when stopped",
                     "es": "Encendido cuando parado",
                     "it": "Acceso quando fermo",
-                    "de": "Ein bei Stillstand"
+                    "de": "Ein bei Stillstand",
+                    "fr": "Allumée à l'arrêt"
                   }
                 }
               ]
@@ -610,13 +534,15 @@
                   "en": "Fan Speed",
                   "es": "Velocidad del ventilador",
                   "it": "Velocità ventilatore",
-                  "de": "Lüftergeschwindigkeit"
+                  "de": "Lüftergeschwindigkeit",
+                  "fr": "Vitesse du ventilateur"
                 },
                 "units": {
                   "en": "%",
                   "es": "%",
                   "it": "%",
-                  "de": "%"
+                  "de": "%",
+                  "fr": "%"
                 }
               }
             },
@@ -624,7 +550,8 @@
               "en": "Moes Dimmer 3 Gang - Gang 2",
               "es": "Regulador Moes 3 canales - Canal 2",
               "it": "Dimmer Moes 3 canali - Canale 2",
-              "de": "Moes Dimmer 3-fach - Gruppe 2"
+              "de": "Moes Dimmer 3-fach - Gruppe 2",
+              "fr": "Variateur Moes 3 canaux - Canal 2"
             },
             "energy": {
               "approximation": {
@@ -640,13 +567,15 @@
                   "en": "Connected Controllers",
                   "es": "Controladores conectados",
                   "it": "Controller collegati",
-                  "de": "Verbundene Regler"
+                  "de": "Verbundene Regler",
+                  "fr": "Contrôleurs connectés"
                 },
                 "hint": {
                   "en": "Other fan controllers sharing this physical device",
                   "es": "Otros controladores de ventilador que comparten este dispositivo",
                   "it": "Altri controller del ventilatore che condividono questo dispositivo",
-                  "de": "Andere Lüftungsregler, die dieses physische Gerät teilen"
+                  "de": "Andere Lüftungsregler, die dieses physische Gerät teilen",
+                  "fr": "Autres contrôleurs de ventilateur partageant cet appareil physique"
                 },
                 "value": "-"
               },
@@ -656,7 +585,8 @@
                   "en": "Speed Control",
                   "es": "Control de velocidad",
                   "it": "Controllo velocità",
-                  "de": "Geschwindigkeitsregelung"
+                  "de": "Geschwindigkeitsregelung",
+                  "fr": "Contrôle de la vitesse"
                 },
                 "children": [
                   {
@@ -666,13 +596,15 @@
                       "en": "Min Speed",
                       "es": "Velocidad mínima",
                       "it": "Velocità minima",
-                      "de": "Mindestgeschwindigkeit"
+                      "de": "Mindestgeschwindigkeit",
+                      "fr": "Vitesse min."
                     },
                     "hint": {
                       "en": "Hardware-enforced minimum fan speed (1–46%). Written directly to device.",
                       "es": "Velocidad mínima del ventilador impuesta por hardware (1–46%).",
                       "it": "Velocità minima del ventilatore imposta dall'hardware (1–46%).",
-                      "de": "Hardware-erzwungene Mindestlüftergeschwindigkeit (1–46 %)."
+                      "de": "Hardware-erzwungene Mindestlüftergeschwindigkeit (1–46 %).",
+                      "fr": "Vitesse minimale du ventilateur imposée par le matériel (1-46 %). Écrite directement sur l'appareil."
                     },
                     "value": 10,
                     "min": 1,
@@ -687,13 +619,15 @@
                       "en": "Max Speed",
                       "es": "Velocidad máxima",
                       "it": "Velocità massima",
-                      "de": "Höchstgeschwindigkeit"
+                      "de": "Höchstgeschwindigkeit",
+                      "fr": "Vitesse max."
                     },
                     "hint": {
                       "en": "Hardware-enforced maximum fan speed (56–100%). Written directly to device.",
                       "es": "Velocidad máxima del ventilador impuesta por hardware (56–100%).",
                       "it": "Velocità massima del ventilatore imposta dall'hardware (56–100%).",
-                      "de": "Hardware-erzwungene Höchstlüftergeschwindigkeit (56–100 %)."
+                      "de": "Hardware-erzwungene Höchstlüftergeschwindigkeit (56–100 %).",
+                      "fr": "Vitesse maximale du ventilateur imposée par le matériel (56-100 %). Écrite directement sur l'appareil."
                     },
                     "value": 100,
                     "min": 56,
@@ -709,7 +643,8 @@
                   "en": "Performance & Protection",
                   "es": "Rendimiento y protección",
                   "it": "Prestazioni e protezione",
-                  "de": "Leistung und Schutz"
+                  "de": "Leistung und Schutz",
+                  "fr": "Performance et protection"
                 },
                 "children": [
                   {
@@ -719,13 +654,15 @@
                       "en": "Enable Debouncing",
                       "es": "Activar antirrebote",
                       "it": "Abilita antirimbalzo",
-                      "de": "Entprellung aktivieren"
+                      "de": "Entprellung aktivieren",
+                      "fr": "Activer l'anti-rebond"
                     },
                     "hint": {
                       "en": "Reduces motor stress and network traffic during rapid speed changes",
                       "es": "Reduce el estrés del motor y el tráfico de red.",
                       "it": "Riduce lo stress del motore e il traffico di rete.",
-                      "de": "Reduziert Motorbelastung und Netzwerkverkehr."
+                      "de": "Reduziert Motorbelastung und Netzwerkverkehr.",
+                      "fr": "Réduit la contrainte sur le moteur et le trafic réseau lors de changements rapides de vitesse"
                     },
                     "value": true
                   },
@@ -736,13 +673,15 @@
                       "en": "Debounce Delay",
                       "es": "Retardo antirrebote",
                       "it": "Ritardo antirimbalzo",
-                      "de": "Entprellverzögerung"
+                      "de": "Entprellverzögerung",
+                      "fr": "Délai d'anti-rebond"
                     },
                     "hint": {
                       "en": "Wait time before applying speed changes (ms)",
                       "es": "Tiempo de espera antes de aplicar cambios de velocidad (ms)",
                       "it": "Tempo di attesa prima di applicare i cambi di velocità (ms)",
-                      "de": "Wartezeit vor dem Anwenden von Geschwindigkeitsänderungen (ms)"
+                      "de": "Wartezeit vor dem Anwenden von Geschwindigkeitsänderungen (ms)",
+                      "fr": "Temps d'attente avant d'appliquer les changements de vitesse (ms)"
                     },
                     "value": 800,
                     "min": 0,
@@ -757,13 +696,15 @@
                       "en": "Motor Protection",
                       "es": "Protección del motor",
                       "it": "Protezione motore",
-                      "de": "Motorschutz"
+                      "de": "Motorschutz",
+                      "fr": "Protection du moteur"
                     },
                     "hint": {
                       "en": "Adds startup delay to prevent motor stress. Disable for LED dimmers",
                       "es": "Añade retardo de arranque. Desactivar para atenuadores LED.",
                       "it": "Aggiunge ritardo di avvio. Disabilita per dimmer LED.",
-                      "de": "Fügt Anlaufverzögerung hinzu. Für LED-Dimmer deaktivieren."
+                      "de": "Fügt Anlaufverzögerung hinzu. Für LED-Dimmer deaktivieren.",
+                      "fr": "Ajoute un délai de démarrage pour éviter la contrainte sur le moteur. À désactiver pour les variateurs LED"
                     },
                     "value": true
                   },
@@ -774,13 +715,15 @@
                       "en": "Motor Startup Delay",
                       "es": "Retardo de arranque del motor",
                       "it": "Ritardo avvio motore",
-                      "de": "Motoranlaufverzögerung"
+                      "de": "Motoranlaufverzögerung",
+                      "fr": "Délai de démarrage du moteur"
                     },
                     "hint": {
                       "en": "Delay between setting speed and powering on motor (ms)",
                       "es": "Retardo entre ajustar la velocidad y encender el motor (ms)",
                       "it": "Ritardo tra velocità e accensione motore (ms)",
-                      "de": "Verzögerung zwischen Geschwindigkeit und Motorstart (ms)"
+                      "de": "Verzögerung zwischen Geschwindigkeit und Motorstart (ms)",
+                      "fr": "Délai entre le réglage de la vitesse et la mise sous tension du moteur (ms)"
                     },
                     "value": 1500,
                     "min": 0,
@@ -796,7 +739,8 @@
                   "en": "Global Settings",
                   "es": "Ajustes globales",
                   "it": "Impostazioni globali",
-                  "de": "Globale Einstellungen"
+                  "de": "Globale Einstellungen",
+                  "fr": "Réglages globaux"
                 },
                 "children": [
                   {
@@ -806,13 +750,15 @@
                       "en": "Power-On & LED Settings",
                       "es": "Ajustes de encendido y LED",
                       "it": "Impostazioni accensione e LED",
-                      "de": "Einschalt- und LED-Einstellungen"
+                      "de": "Einschalt- und LED-Einstellungen",
+                      "fr": "Réglages de mise sous tension et LED"
                     },
                     "hint": {
                       "en": "Global settings (Power-On behavior and LED mode) are configured in Gang 1 (Main) and apply to all 3 gangs.",
                       "es": "Los ajustes globales se configuran en el canal 1 (principal) y se aplican a los 3 canales.",
                       "it": "Le impostazioni globali si configurano nel canale 1 (principale) e si applicano a tutti e 3 i canali.",
-                      "de": "Globale Einstellungen werden in Gruppe 1 (Haupt) konfiguriert und gelten für alle 3 Gruppen."
+                      "de": "Globale Einstellungen werden in Gruppe 1 (Haupt) konfiguriert und gelten für alle 3 Gruppen.",
+                      "fr": "Les réglages globaux (comportement à la mise sous tension et mode LED) se configurent sur le Canal 1 (principal) et s'appliquent aux 3 canaux."
                     },
                     "value": ""
                   }
@@ -832,13 +778,15 @@
                   "en": "Fan Speed",
                   "es": "Velocidad del ventilador",
                   "it": "Velocità ventilatore",
-                  "de": "Lüftergeschwindigkeit"
+                  "de": "Lüftergeschwindigkeit",
+                  "fr": "Vitesse du ventilateur"
                 },
                 "units": {
                   "en": "%",
                   "es": "%",
                   "it": "%",
-                  "de": "%"
+                  "de": "%",
+                  "fr": "%"
                 }
               }
             },
@@ -846,7 +794,8 @@
               "en": "Moes Dimmer 3 Gang - Gang 3",
               "es": "Regulador Moes 3 canales - Canal 3",
               "it": "Dimmer Moes 3 canali - Canale 3",
-              "de": "Moes Dimmer 3-fach - Gruppe 3"
+              "de": "Moes Dimmer 3-fach - Gruppe 3",
+              "fr": "Variateur Moes 3 canaux - Canal 3"
             },
             "energy": {
               "approximation": {
@@ -862,13 +811,15 @@
                   "en": "Connected Controllers",
                   "es": "Controladores conectados",
                   "it": "Controller collegati",
-                  "de": "Verbundene Regler"
+                  "de": "Verbundene Regler",
+                  "fr": "Contrôleurs connectés"
                 },
                 "hint": {
                   "en": "Other fan controllers sharing this physical device",
                   "es": "Otros controladores de ventilador que comparten este dispositivo",
                   "it": "Altri controller del ventilatore che condividono questo dispositivo",
-                  "de": "Andere Lüftungsregler, die dieses physische Gerät teilen"
+                  "de": "Andere Lüftungsregler, die dieses physische Gerät teilen",
+                  "fr": "Autres contrôleurs de ventilateur partageant cet appareil physique"
                 },
                 "value": "-"
               },
@@ -878,7 +829,8 @@
                   "en": "Speed Control",
                   "es": "Control de velocidad",
                   "it": "Controllo velocità",
-                  "de": "Geschwindigkeitsregelung"
+                  "de": "Geschwindigkeitsregelung",
+                  "fr": "Contrôle de la vitesse"
                 },
                 "children": [
                   {
@@ -888,13 +840,15 @@
                       "en": "Min Speed",
                       "es": "Velocidad mínima",
                       "it": "Velocità minima",
-                      "de": "Mindestgeschwindigkeit"
+                      "de": "Mindestgeschwindigkeit",
+                      "fr": "Vitesse min."
                     },
                     "hint": {
                       "en": "Hardware-enforced minimum fan speed (1–46%). Written directly to device.",
                       "es": "Velocidad mínima del ventilador impuesta por hardware (1–46%).",
                       "it": "Velocità minima del ventilatore imposta dall'hardware (1–46%).",
-                      "de": "Hardware-erzwungene Mindestlüftergeschwindigkeit (1–46 %)."
+                      "de": "Hardware-erzwungene Mindestlüftergeschwindigkeit (1–46 %).",
+                      "fr": "Vitesse minimale du ventilateur imposée par le matériel (1-46 %). Écrite directement sur l'appareil."
                     },
                     "value": 10,
                     "min": 1,
@@ -909,13 +863,15 @@
                       "en": "Max Speed",
                       "es": "Velocidad máxima",
                       "it": "Velocità massima",
-                      "de": "Höchstgeschwindigkeit"
+                      "de": "Höchstgeschwindigkeit",
+                      "fr": "Vitesse max."
                     },
                     "hint": {
                       "en": "Hardware-enforced maximum fan speed (56–100%). Written directly to device.",
                       "es": "Velocidad máxima del ventilador impuesta por hardware (56–100%).",
                       "it": "Velocità massima del ventilatore imposta dall'hardware (56–100%).",
-                      "de": "Hardware-erzwungene Höchstlüftergeschwindigkeit (56–100 %)."
+                      "de": "Hardware-erzwungene Höchstlüftergeschwindigkeit (56–100 %).",
+                      "fr": "Vitesse maximale du ventilateur imposée par le matériel (56-100 %). Écrite directement sur l'appareil."
                     },
                     "value": 100,
                     "min": 56,
@@ -931,7 +887,8 @@
                   "en": "Performance & Protection",
                   "es": "Rendimiento y protección",
                   "it": "Prestazioni e protezione",
-                  "de": "Leistung und Schutz"
+                  "de": "Leistung und Schutz",
+                  "fr": "Performance et protection"
                 },
                 "children": [
                   {
@@ -941,13 +898,15 @@
                       "en": "Enable Debouncing",
                       "es": "Activar antirrebote",
                       "it": "Abilita antirimbalzo",
-                      "de": "Entprellung aktivieren"
+                      "de": "Entprellung aktivieren",
+                      "fr": "Activer l'anti-rebond"
                     },
                     "hint": {
                       "en": "Reduces motor stress and network traffic during rapid speed changes",
                       "es": "Reduce el estrés del motor y el tráfico de red.",
                       "it": "Riduce lo stress del motore e il traffico di rete.",
-                      "de": "Reduziert Motorbelastung und Netzwerkverkehr."
+                      "de": "Reduziert Motorbelastung und Netzwerkverkehr.",
+                      "fr": "Réduit la contrainte sur le moteur et le trafic réseau lors de changements rapides de vitesse"
                     },
                     "value": true
                   },
@@ -958,13 +917,15 @@
                       "en": "Debounce Delay",
                       "es": "Retardo antirrebote",
                       "it": "Ritardo antirimbalzo",
-                      "de": "Entprellverzögerung"
+                      "de": "Entprellverzögerung",
+                      "fr": "Délai d'anti-rebond"
                     },
                     "hint": {
                       "en": "Wait time before applying speed changes (ms)",
                       "es": "Tiempo de espera antes de aplicar cambios de velocidad (ms)",
                       "it": "Tempo di attesa prima di applicare i cambi di velocità (ms)",
-                      "de": "Wartezeit vor dem Anwenden von Geschwindigkeitsänderungen (ms)"
+                      "de": "Wartezeit vor dem Anwenden von Geschwindigkeitsänderungen (ms)",
+                      "fr": "Temps d'attente avant d'appliquer les changements de vitesse (ms)"
                     },
                     "value": 800,
                     "min": 0,
@@ -979,13 +940,15 @@
                       "en": "Motor Protection",
                       "es": "Protección del motor",
                       "it": "Protezione motore",
-                      "de": "Motorschutz"
+                      "de": "Motorschutz",
+                      "fr": "Protection du moteur"
                     },
                     "hint": {
                       "en": "Adds startup delay to prevent motor stress. Disable for LED dimmers",
                       "es": "Añade retardo de arranque. Desactivar para atenuadores LED.",
                       "it": "Aggiunge ritardo di avvio. Disabilita per dimmer LED.",
-                      "de": "Fügt Anlaufverzögerung hinzu. Für LED-Dimmer deaktivieren."
+                      "de": "Fügt Anlaufverzögerung hinzu. Für LED-Dimmer deaktivieren.",
+                      "fr": "Ajoute un délai de démarrage pour éviter la contrainte sur le moteur. À désactiver pour les variateurs LED"
                     },
                     "value": true
                   },
@@ -996,13 +959,15 @@
                       "en": "Motor Startup Delay",
                       "es": "Retardo de arranque del motor",
                       "it": "Ritardo avvio motore",
-                      "de": "Motoranlaufverzögerung"
+                      "de": "Motoranlaufverzögerung",
+                      "fr": "Délai de démarrage du moteur"
                     },
                     "hint": {
                       "en": "Delay between setting speed and powering on motor (ms)",
                       "es": "Retardo entre ajustar la velocidad y encender el motor (ms)",
                       "it": "Ritardo tra velocità e accensione motore (ms)",
-                      "de": "Verzögerung zwischen Geschwindigkeit und Motorstart (ms)"
+                      "de": "Verzögerung zwischen Geschwindigkeit und Motorstart (ms)",
+                      "fr": "Délai entre le réglage de la vitesse et la mise sous tension du moteur (ms)"
                     },
                     "value": 1500,
                     "min": 0,
@@ -1018,7 +983,8 @@
                   "en": "Global Settings",
                   "es": "Ajustes globales",
                   "it": "Impostazioni globali",
-                  "de": "Globale Einstellungen"
+                  "de": "Globale Einstellungen",
+                  "fr": "Réglages globaux"
                 },
                 "children": [
                   {
@@ -1028,13 +994,15 @@
                       "en": "Power-On & LED Settings",
                       "es": "Ajustes de encendido y LED",
                       "it": "Impostazioni accensione e LED",
-                      "de": "Einschalt- und LED-Einstellungen"
+                      "de": "Einschalt- und LED-Einstellungen",
+                      "fr": "Réglages de mise sous tension et LED"
                     },
                     "hint": {
                       "en": "Global settings (Power-On behavior and LED mode) are configured in Gang 1 (Main) and apply to all 3 gangs.",
                       "es": "Los ajustes globales se configuran en el canal 1 (principal) y se aplican a los 3 canales.",
                       "it": "Le impostazioni globali si configurano nel canale 1 (principale) e si applicano a tutti e 3 i canali.",
-                      "de": "Globale Einstellungen werden in Gruppe 1 (Haupt) konfiguriert und gelten für alle 3 Gruppen."
+                      "de": "Globale Einstellungen werden in Gruppe 1 (Haupt) konfiguriert und gelten für alle 3 Gruppen.",
+                      "fr": "Les réglages globaux (comportement à la mise sous tension et mode LED) se configurent sur le Canal 1 (principal) et s'appliquent aux 3 canaux."
                     },
                     "value": ""
                   }
@@ -1049,7 +1017,8 @@
             "en": "Three fan controllers will be created, one for each channel. Gang 1 (Main) contains global settings that affect all gangs. Press the reset switch 6 times rapidly, then hold until the LED flashes to enter pairing mode.",
             "es": "Se crearán tres controladores de ventilador, uno por canal. El canal 1 (principal) contiene ajustes globales. Pulsa el interruptor de reinicio 6 veces rápidamente y luego mantenlo hasta que el LED parpadee.",
             "it": "Verranno creati tre controller del ventilatore, uno per canale. Il canale 1 (principale) contiene le impostazioni globali. Premi l'interruttore di reset 6 volte rapidamente, poi tieni premuto fino a quando il LED lampeggia.",
-            "de": "Es werden drei Lüftungsregler erstellt, einer pro Kanal. Gruppe 1 (Haupt) enthält globale Einstellungen. Drücke den Reset-Schalter 6-mal schnell, dann halte ihn gedrückt, bis die LED blinkt."
+            "de": "Es werden drei Lüftungsregler erstellt, einer pro Kanal. Gruppe 1 (Haupt) enthält globale Einstellungen. Drücke den Reset-Schalter 6-mal schnell, dann halte ihn gedrückt, bis die LED blinkt.",
+            "fr": "Trois contrôleurs de ventilateur seront créés, un par canal. Le Canal 1 (principal) contient les réglages globaux qui affectent tous les canaux. Appuyez rapidement 6 fois sur l'interrupteur de réinitialisation, puis maintenez-le enfoncé jusqu'à ce que la LED clignote pour entrer en mode d'appairage."
           }
         }
       }
@@ -1060,7 +1029,8 @@
         "en": "Radar Sensor Moes (Linptech)",
         "de": "Radar-Sensor Moes (Linptech)",
         "es": "Sensor radar Moes (Linptech)",
-        "it": "Sensore radar Moes (Linptech)"
+        "it": "Sensore radar Moes (Linptech)",
+        "fr": "Capteur radar Moes (Linptech)"
       },
       "class": "sensor",
       "platforms": [
@@ -1122,7 +1092,8 @@
             "en": "Press and hold the reset button for 5 seconds. When the indicator light flashes it is in pairing mode.",
             "de": "Halte die Reset-Taste 5 Sekunden lang gedrückt. Wenn die Kontrollleuchte blinkt, befindet sich das Gerät im Kopplungsmodus.",
             "es": "Mantén pulsado el botón de reinicio durante 5 segundos. Cuando la luz indicadora parpadea, está en modo de emparejamiento.",
-            "it": "Tieni premuto il pulsante di reset per 5 secondi. Quando la spia lampeggia, il dispositivo è in modalità associazione."
+            "it": "Tieni premuto il pulsante di reset per 5 secondi. Quando la spia lampeggia, il dispositivo è in modalità associazione.",
+            "fr": "Maintenez le bouton de réinitialisation enfoncé pendant 5 secondes. Lorsque le voyant clignote, l'appareil est en mode d'appairage."
           }
         }
       },
@@ -1133,7 +1104,8 @@
             "en": "Detection",
             "de": "Erkennung",
             "es": "Detección",
-            "it": "Rilevamento"
+            "it": "Rilevamento",
+            "fr": "Détection"
           },
           "children": [
             {
@@ -1143,13 +1115,15 @@
                 "en": "Motion sensitivity",
                 "de": "Bewegungsempfindlichkeit",
                 "es": "Sensibilidad de movimiento",
-                "it": "Sensibilità al movimento"
+                "it": "Sensibilità al movimento",
+                "fr": "Sensibilité au mouvement"
               },
               "hint": {
                 "en": "Sensitivity for moving objects (0=lowest, 5=highest).",
                 "de": "Empfindlichkeit für bewegte Objekte (0=am niedrigsten, 5=am höchsten).",
                 "es": "Sensibilidad para objetos en movimiento (0=mínima, 5=máxima).",
-                "it": "Sensibilità per oggetti in movimento (0=minima, 5=massima)."
+                "it": "Sensibilità per oggetti in movimento (0=minima, 5=massima).",
+                "fr": "Sensibilité pour les objets en mouvement (0=minimale, 5=maximale)."
               },
               "value": 3,
               "min": 0,
@@ -1163,13 +1137,15 @@
                 "en": "Static sensitivity",
                 "de": "Statische Empfindlichkeit",
                 "es": "Sensibilidad estática",
-                "it": "Sensibilità statica"
+                "it": "Sensibilità statica",
+                "fr": "Sensibilité statique"
               },
               "hint": {
                 "en": "Sensitivity for stationary presence — micro-movements like breathing (0=lowest, 5=highest).",
                 "de": "Empfindlichkeit für statische Anwesenheit - Mikrobewegungen wie Atmung (0=am niedrigsten, 5=am höchsten).",
                 "es": "Sensibilidad para presencia estática: micro-movimientos como la respiración (0=mínima, 5=máxima).",
-                "it": "Sensibilità per la presenza statica - micro-movimenti come la respirazione (0=minima, 5=massima)."
+                "it": "Sensibilità per la presenza statica - micro-movimenti come la respirazione (0=minima, 5=massima).",
+                "fr": "Sensibilité pour la présence stationnaire — micro-mouvements comme la respiration (0=minimale, 5=maximale)."
               },
               "value": 3,
               "min": 0,
@@ -1183,13 +1159,15 @@
                 "en": "Detection distance",
                 "de": "Erkennungsdistanz",
                 "es": "Distancia de detección",
-                "it": "Distanza di rilevamento"
+                "it": "Distanza di rilevamento",
+                "fr": "Distance de détection"
               },
               "hint": {
                 "en": "Maximum motion detection distance.",
                 "de": "Maximale Bewegungs-Erkennungsdistanz.",
                 "es": "Distancia máxima de detección de movimiento.",
-                "it": "Distanza massima di rilevamento del movimento."
+                "it": "Distanza massima di rilevamento del movimento.",
+                "fr": "Distance maximale de détection de mouvement."
               },
               "value": "600",
               "values": [
@@ -1199,7 +1177,8 @@
                     "en": "0 cm",
                     "de": "0 cm",
                     "es": "0 cm",
-                    "it": "0 cm"
+                    "it": "0 cm",
+                    "fr": "0 cm"
                   }
                 },
                 {
@@ -1208,7 +1187,8 @@
                     "en": "75 cm",
                     "de": "75 cm",
                     "es": "75 cm",
-                    "it": "75 cm"
+                    "it": "75 cm",
+                    "fr": "75 cm"
                   }
                 },
                 {
@@ -1217,7 +1197,8 @@
                     "en": "150 cm",
                     "de": "150 cm",
                     "es": "150 cm",
-                    "it": "150 cm"
+                    "it": "150 cm",
+                    "fr": "150 cm"
                   }
                 },
                 {
@@ -1226,7 +1207,8 @@
                     "en": "225 cm",
                     "de": "225 cm",
                     "es": "225 cm",
-                    "it": "225 cm"
+                    "it": "225 cm",
+                    "fr": "225 cm"
                   }
                 },
                 {
@@ -1235,7 +1217,8 @@
                     "en": "300 cm",
                     "de": "300 cm",
                     "es": "300 cm",
-                    "it": "300 cm"
+                    "it": "300 cm",
+                    "fr": "300 cm"
                   }
                 },
                 {
@@ -1244,7 +1227,8 @@
                     "en": "375 cm",
                     "de": "375 cm",
                     "es": "375 cm",
-                    "it": "375 cm"
+                    "it": "375 cm",
+                    "fr": "375 cm"
                   }
                 },
                 {
@@ -1253,7 +1237,8 @@
                     "en": "450 cm",
                     "de": "450 cm",
                     "es": "450 cm",
-                    "it": "450 cm"
+                    "it": "450 cm",
+                    "fr": "450 cm"
                   }
                 },
                 {
@@ -1262,7 +1247,8 @@
                     "en": "525 cm",
                     "de": "525 cm",
                     "es": "525 cm",
-                    "it": "525 cm"
+                    "it": "525 cm",
+                    "fr": "525 cm"
                   }
                 },
                 {
@@ -1271,7 +1257,8 @@
                     "en": "600 cm",
                     "de": "600 cm",
                     "es": "600 cm",
-                    "it": "600 cm"
+                    "it": "600 cm",
+                    "fr": "600 cm"
                   }
                 }
               ]
@@ -1283,13 +1270,15 @@
                 "en": "Fading time",
                 "de": "Nachlaufzeit",
                 "es": "Tiempo de desvanecimiento",
-                "it": "Tempo di spegnimento"
+                "it": "Tempo di spegnimento",
+                "fr": "Temps d'extinction"
               },
               "hint": {
                 "en": "Time before clearing presence after no movement.",
                 "de": "Zeit bis zum Zurücksetzen der Anwesenheit nach fehlender Bewegung.",
                 "es": "Tiempo antes de borrar la presencia tras no detectar movimiento.",
-                "it": "Tempo prima di azzerare la presenza dopo l'assenza di movimento."
+                "it": "Tempo prima di azzerare la presenza dopo l'assenza di movimento.",
+                "fr": "Délai avant d'effacer la présence en l'absence de mouvement."
               },
               "value": 10,
               "min": 0,
@@ -1299,7 +1288,8 @@
                 "en": "seconds",
                 "de": "Sekunden",
                 "es": "segundos",
-                "it": "secondi"
+                "it": "secondi",
+                "fr": "secondes"
               }
             }
           ]
@@ -1310,7 +1300,8 @@
             "en": "LED & Reporting",
             "de": "LED und Meldungen",
             "es": "LED e informes",
-            "it": "LED e segnalazioni"
+            "it": "LED e segnalazioni",
+            "fr": "LED et rapports"
           },
           "children": [
             {
@@ -1320,13 +1311,15 @@
                 "en": "LED presence indicator",
                 "de": "LED-Anwesenheitsanzeige",
                 "es": "Indicador LED de presencia",
-                "it": "Indicatore LED di presenza"
+                "it": "Indicatore LED di presenza",
+                "fr": "Indicateur LED de présence"
               },
               "hint": {
                 "en": "Enable/disable the LED that flashes on presence detection.",
                 "de": "Aktiviert/deaktiviert die LED, die bei Anwesenheitserkennung blinkt.",
                 "es": "Activa o desactiva el LED que parpadea al detectar presencia.",
-                "it": "Attiva/disattiva il LED che lampeggia al rilevamento della presenza."
+                "it": "Attiva/disattiva il LED che lampeggia al rilevamento della presenza.",
+                "fr": "Active/désactive la LED qui clignote lors de la détection de présence."
               },
               "value": true
             }
@@ -1338,7 +1331,8 @@
             "en": "Diagnostics & Statistics",
             "de": "Diagnose und Statistiken",
             "es": "Diagnóstico y estadísticas",
-            "it": "Diagnostica e statistiche"
+            "it": "Diagnostica e statistiche",
+            "fr": "Diagnostics et statistiques"
           },
           "children": [
             {
@@ -1348,13 +1342,15 @@
                 "en": "Device stats",
                 "de": "Gerätestatistiken",
                 "es": "Estadísticas del dispositivo",
-                "it": "Statistiche del dispositivo"
+                "it": "Statistiche del dispositivo",
+                "fr": "Statistiques de l'appareil"
               },
               "hint": {
-                "en": "Msg: messages last 24h / avg per hour | Dist: last target distance | Err: error count | Last: minutes since last message | Up: uptime",
-                "de": "Msg: Nachrichten letzte 24 Std. / Durchschnitt pro Stunde | Dist: letzte Zielentfernung | Err: Fehleranzahl | Last: Minuten seit der letzten Nachricht | Up: Laufzeit",
-                "es": "Msg: mensajes en las últimas 24 h / promedio por hora | Dist: última distancia objetivo | Err: recuento de errores | Last: minutos desde el último mensaje | Up: tiempo de actividad",
-                "it": "Msg: messaggi ultime 24 h / media per ora | Dist: ultima distanza del bersaglio | Err: conteggio errori | Last: minuti dall'ultimo messaggio | Up: uptime"
+                "en": "Dist: last target distance | Pres: last presence keep time | Err: error count | Up: uptime",
+                "de": "Dist: letzte Zielentfernung | Pres: letzte Anwesenheits-Haltezeit | Err: Fehleranzahl | Up: Laufzeit",
+                "es": "Dist: última distancia objetivo | Pres: último tiempo de mantenimiento de presencia | Err: recuento de errores | Up: tiempo de actividad",
+                "it": "Dist: ultima distanza del bersaglio | Pres: ultimo tempo di mantenimento presenza | Err: conteggio errori | Up: uptime",
+                "fr": "Dist : dernière distance de la cible | Pres : dernier temps de maintien de présence | Err : nombre d'erreurs | Up : temps de fonctionnement"
               },
               "value": "Waiting for data..."
             },
@@ -1365,13 +1361,15 @@
                 "en": "Min luminance change",
                 "de": "Mindeständerung der Helligkeit",
                 "es": "Cambio mínimo de luminancia",
-                "it": "Variazione minima di luminanza"
+                "it": "Variazione minima di luminanza",
+                "fr": "Changement min. de luminance"
               },
               "hint": {
                 "en": "Only update Homey when luminance changes by at least this many lux. 0 = every report.",
                 "de": "Homey nur aktualisieren, wenn sich die Helligkeit um mindestens so viele Lux ändert. 0 = jeder Bericht.",
                 "es": "Solo actualiza Homey cuando la luminancia cambie al menos esta cantidad de lux. 0 = cada informe.",
-                "it": "Aggiorna Homey solo quando la luminanza cambia di almeno questo numero di lux. 0 = ogni report."
+                "it": "Aggiorna Homey solo quando la luminanza cambia di almeno questo numero di lux. 0 = ogni report.",
+                "fr": "Ne met à jour Homey que lorsque la luminance change d'au moins ce nombre de lux. 0 = chaque rapport."
               },
               "value": 5,
               "min": 0,
@@ -1381,7 +1379,8 @@
                 "en": "lux",
                 "de": "Lux",
                 "es": "lux",
-                "it": "lux"
+                "it": "lux",
+                "fr": "lux"
               }
             },
             {
@@ -1391,13 +1390,15 @@
                 "en": "Debug logging",
                 "de": "Debug-Protokollierung",
                 "es": "Registro de depuración",
-                "it": "Log di debug"
+                "it": "Log di debug",
+                "fr": "Journalisation de débogage"
               },
               "hint": {
                 "en": "Log every event received from the device.",
                 "de": "Protokolliert jedes vom Gerät empfangene Ereignis.",
                 "es": "Registra todos los eventos recibidos del dispositivo.",
-                "it": "Registra ogni evento ricevuto dal dispositivo."
+                "it": "Registra ogni evento ricevuto dal dispositivo.",
+                "fr": "Journalise chaque événement reçu de l'appareil."
               },
               "value": false
             }
@@ -1407,38 +1408,21 @@
     }
   ],
   "capabilities": {
-    "is_availability": {
-      "type": "boolean",
-      "title": {
-        "en": "Is Available",
-        "es": "Disponible",
-        "it": "Disponibile",
-        "de": "Verfügbar"
-      },
-      "desc": {
-        "en": "true = device available, false = device unavailable. Used for availability flow triggers.",
-        "es": "true = dispositivo disponible, false = dispositivo no disponible. Usado para disparadores de flujo de disponibilidad.",
-        "it": "true = dispositivo disponibile, false = dispositivo non disponibile. Usato per i trigger di flusso di disponibilità.",
-        "de": "true = Gerät verfügbar, false = Gerät nicht verfügbar. Wird für Verfügbarkeits-Flow-Trigger verwendet."
-      },
-      "getable": true,
-      "setable": false,
-      "insights": false,
-      "uiComponent": null
-    },
     "presence_keep_time": {
       "type": "number",
       "title": {
         "en": "Presence time",
         "de": "Präsenzzeit",
         "es": "Tiempo de presencia",
-        "it": "Tempo di presenza"
+        "it": "Tempo di presenza",
+        "fr": "Temps de présence"
       },
       "units": {
         "en": "min",
         "de": "min",
         "es": "min",
-        "it": "min"
+        "it": "min",
+        "fr": "min"
       },
       "getable": true,
       "setable": false,

@@ -17,21 +17,12 @@ class MyMoesApp extends Homey.App {
 
   async onInit() {
     this.log('Moes initiating...');
-    this._registerFlowCards();
 
     // Baseline for the settings-page "Rejoins" counter — only set once;
     // resetRejoinStats (api.js) moves it forward when the user resets.
     if (!this.homey.settings.get('rejoin_tracking_since')) {
       this.homey.settings.set('rejoin_tracking_since', Date.now());
     }
-  }
-
-  _registerFlowCards() {
-    // Condition: availability is on (reads available state natively)
-    this.homey.flow.getConditionCard('availability_is_on')
-      .registerRunListener(async ({ device }) => {
-        return device.getAvailable();
-      });
   }
 
 };

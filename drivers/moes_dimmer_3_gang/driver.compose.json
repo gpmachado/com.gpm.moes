@@ -4,13 +4,13 @@
     "en": "Moes Dimmer 3 Gang",
     "es": "Regulador Moes 3 canales",
     "it": "Dimmer Moes 3 canali",
-    "de": "Moes Dimmer 3-fach"
+    "de": "Moes Dimmer 3-fach",
+    "fr": "Variateur Moes 3 canaux"
   },
   "class": "socket",
   "capabilities": [
     "onoff",
-    "dim",
-    "is_availability"
+    "dim"
   ],
   "capabilitiesOptions": {
     "dim": {
@@ -21,13 +21,15 @@
         "en": "Fan Speed",
         "es": "Velocidad del ventilador",
         "it": "Velocità ventilatore",
-        "de": "Lüftergeschwindigkeit"
+        "de": "Lüftergeschwindigkeit",
+        "fr": "Vitesse du ventilateur"
       },
       "units": {
         "en": "%",
         "es": "%",
         "it": "%",
-        "de": "%"
+        "de": "%",
+        "fr": "%"
       }
     }
   },
@@ -45,13 +47,15 @@
         "en": "Connected Controllers",
         "es": "Controladores conectados",
         "it": "Controller collegati",
-        "de": "Verbundene Regler"
+        "de": "Verbundene Regler",
+        "fr": "Contrôleurs connectés"
       },
       "hint": {
         "en": "Other fan controllers sharing this physical device",
         "es": "Otros controladores de ventilador que comparten este dispositivo",
         "it": "Altri controller del ventilatore che condividono questo dispositivo",
-        "de": "Andere Lüftungsregler, die dieses physische Gerät teilen"
+        "de": "Andere Lüftungsregler, die dieses physische Gerät teilen",
+        "fr": "Autres contrôleurs de ventilateur partageant cet appareil physique"
       },
       "value": "-"
     },
@@ -61,7 +65,8 @@
         "en": "Speed Control",
         "es": "Control de velocidad",
         "it": "Controllo velocità",
-        "de": "Geschwindigkeitsregelung"
+        "de": "Geschwindigkeitsregelung",
+        "fr": "Contrôle de la vitesse"
       },
       "children": [
         {
@@ -71,13 +76,15 @@
             "en": "Min Speed",
             "es": "Velocidad mínima",
             "it": "Velocità minima",
-            "de": "Mindestgeschwindigkeit"
+            "de": "Mindestgeschwindigkeit",
+            "fr": "Vitesse min."
           },
           "hint": {
             "en": "Hardware-enforced minimum fan speed (1–46%). Written directly to device.",
             "es": "Velocidad mínima del ventilador impuesta por hardware (1–46%). Se escribe directamente en el dispositivo.",
             "it": "Velocità minima del ventilatore imposta dall'hardware (1–46%). Scritta direttamente sul dispositivo.",
-            "de": "Hardware-erzwungene Mindestlüftergeschwindigkeit (1–46 %). Direkt auf das Gerät geschrieben."
+            "de": "Hardware-erzwungene Mindestlüftergeschwindigkeit (1–46 %). Direkt auf das Gerät geschrieben.",
+            "fr": "Vitesse minimale du ventilateur imposée par le matériel (1-46 %). Écrite directement sur l'appareil."
           },
           "value": 10,
           "min": 1,
@@ -92,13 +99,15 @@
             "en": "Max Speed",
             "es": "Velocidad máxima",
             "it": "Velocità massima",
-            "de": "Höchstgeschwindigkeit"
+            "de": "Höchstgeschwindigkeit",
+            "fr": "Vitesse max."
           },
           "hint": {
             "en": "Hardware-enforced maximum fan speed (56–100%). Written directly to device.",
             "es": "Velocidad máxima del ventilador impuesta por hardware (56–100%). Se escribe directamente en el dispositivo.",
             "it": "Velocità massima del ventilatore imposta dall'hardware (56–100%). Scritta direttamente sul dispositivo.",
-            "de": "Hardware-erzwungene Höchstlüftergeschwindigkeit (56–100 %). Direkt auf das Gerät geschrieben."
+            "de": "Hardware-erzwungene Höchstlüftergeschwindigkeit (56–100 %). Direkt auf das Gerät geschrieben.",
+            "fr": "Vitesse maximale du ventilateur imposée par le matériel (56-100 %). Écrite directement sur l'appareil."
           },
           "value": 100,
           "min": 56,
@@ -114,7 +123,8 @@
         "en": "Performance & Protection",
         "es": "Rendimiento y protección",
         "it": "Prestazioni e protezione",
-        "de": "Leistung und Schutz"
+        "de": "Leistung und Schutz",
+        "fr": "Performance et protection"
       },
       "children": [
         {
@@ -124,13 +134,15 @@
             "en": "Enable Debouncing",
             "es": "Activar antirrebote",
             "it": "Abilita antirimbalzo",
-            "de": "Entprellung aktivieren"
+            "de": "Entprellung aktivieren",
+            "fr": "Activer l'anti-rebond"
           },
           "hint": {
             "en": "Reduces motor stress and network traffic during rapid speed changes",
             "es": "Reduce el estrés del motor y el tráfico de red durante cambios rápidos de velocidad",
             "it": "Riduce lo stress del motore e il traffico di rete durante cambi rapidi di velocità",
-            "de": "Reduziert Motorbelastung und Netzwerkverkehr bei schnellen Geschwindigkeitsänderungen"
+            "de": "Reduziert Motorbelastung und Netzwerkverkehr bei schnellen Geschwindigkeitsänderungen",
+            "fr": "Réduit la contrainte sur le moteur et le trafic réseau lors de changements rapides de vitesse"
           },
           "value": true
         },
@@ -141,13 +153,15 @@
             "en": "Debounce Delay",
             "es": "Retardo antirrebote",
             "it": "Ritardo antirimbalzo",
-            "de": "Entprellverzögerung"
+            "de": "Entprellverzögerung",
+            "fr": "Délai d'anti-rebond"
           },
           "hint": {
             "en": "Wait time before applying speed changes (ms)",
             "es": "Tiempo de espera antes de aplicar cambios de velocidad (ms)",
             "it": "Tempo di attesa prima di applicare i cambi di velocità (ms)",
-            "de": "Wartezeit vor dem Anwenden von Geschwindigkeitsänderungen (ms)"
+            "de": "Wartezeit vor dem Anwenden von Geschwindigkeitsänderungen (ms)",
+            "fr": "Temps d'attente avant d'appliquer les changements de vitesse (ms)"
           },
           "value": 800,
           "min": 0,
@@ -162,13 +176,15 @@
             "en": "Motor Protection",
             "es": "Protección del motor",
             "it": "Protezione motore",
-            "de": "Motorschutz"
+            "de": "Motorschutz",
+            "fr": "Protection du moteur"
           },
           "hint": {
             "en": "Adds startup delay to prevent motor stress. Disable for LED dimmers",
             "es": "Añade un retardo de arranque para evitar el estrés del motor. Desactivar para atenuadores LED",
             "it": "Aggiunge un ritardo di avvio per prevenire lo stress del motore. Disabilita per dimmer LED",
-            "de": "Fügt eine Anlaufverzögerung hinzu, um Motorbelastung zu vermeiden. Für LED-Dimmer deaktivieren"
+            "de": "Fügt eine Anlaufverzögerung hinzu, um Motorbelastung zu vermeiden. Für LED-Dimmer deaktivieren",
+            "fr": "Ajoute un délai de démarrage pour éviter la contrainte sur le moteur. À désactiver pour les variateurs LED"
           },
           "value": true
         },
@@ -179,13 +195,15 @@
             "en": "Motor Startup Delay",
             "es": "Retardo de arranque del motor",
             "it": "Ritardo avvio motore",
-            "de": "Motoranlaufverzögerung"
+            "de": "Motoranlaufverzögerung",
+            "fr": "Délai de démarrage du moteur"
           },
           "hint": {
             "en": "Delay between setting speed and powering on motor (ms)",
             "es": "Retardo entre ajustar la velocidad y encender el motor (ms)",
             "it": "Ritardo tra l'impostazione della velocità e l'accensione del motore (ms)",
-            "de": "Verzögerung zwischen Geschwindigkeitseinstellung und Motorstart (ms)"
+            "de": "Verzögerung zwischen Geschwindigkeitseinstellung und Motorstart (ms)",
+            "fr": "Délai entre le réglage de la vitesse et la mise sous tension du moteur (ms)"
           },
           "value": 1500,
           "min": 0,
@@ -201,7 +219,8 @@
         "en": "Global Settings",
         "es": "Ajustes globales",
         "it": "Impostazioni globali",
-        "de": "Globale Einstellungen"
+        "de": "Globale Einstellungen",
+        "fr": "Réglages globaux"
       },
       "children": [
         {
@@ -211,13 +230,15 @@
             "en": "Power-On Behavior (All Gangs)",
             "es": "Comportamiento al encender (todos los grupos)",
             "it": "Comportamento all'accensione (tutti i gruppi)",
-            "de": "Einschaltverhalten (alle Gruppen)"
+            "de": "Einschaltverhalten (alle Gruppen)",
+            "fr": "Comportement à la mise sous tension (tous les canaux)"
           },
           "hint": {
             "en": "Controls all 3 gangs after power outage",
             "es": "Controla los 3 grupos tras un corte de luz",
             "it": "Controlla tutti e 3 i gruppi dopo un'interruzione di corrente",
-            "de": "Steuert alle 3 Gruppen nach einem Stromausfall"
+            "de": "Steuert alle 3 Gruppen nach einem Stromausfall",
+            "fr": "Contrôle les 3 canaux après une coupure de courant"
           },
           "value": "memory",
           "values": [
@@ -227,7 +248,8 @@
                 "en": "Always Off",
                 "es": "Siempre apagado",
                 "it": "Sempre spento",
-                "de": "Immer aus"
+                "de": "Immer aus",
+                "fr": "Toujours éteint"
               }
             },
             {
@@ -236,7 +258,8 @@
                 "en": "Always On",
                 "es": "Siempre encendido",
                 "it": "Sempre acceso",
-                "de": "Immer ein"
+                "de": "Immer ein",
+                "fr": "Toujours allumé"
               }
             },
             {
@@ -245,7 +268,8 @@
                 "en": "Remember State",
                 "es": "Recordar estado",
                 "it": "Ricorda stato",
-                "de": "Zustand merken"
+                "de": "Zustand merken",
+                "fr": "Mémoriser l'état"
               }
             }
           ]
@@ -257,13 +281,15 @@
             "en": "LED Mode (All Gangs)",
             "es": "Modo LED (todos los grupos)",
             "it": "Modalità LED (tutti i gruppi)",
-            "de": "LED-Modus (alle Gruppen)"
+            "de": "LED-Modus (alle Gruppen)",
+            "fr": "Mode LED (tous les canaux)"
           },
           "hint": {
             "en": "Status LED behavior for all 3 gangs",
             "es": "Comportamiento del LED de estado para los 3 grupos",
             "it": "Comportamento del LED di stato per tutti e 3 i gruppi",
-            "de": "Status-LED-Verhalten für alle 3 Gruppen"
+            "de": "Status-LED-Verhalten für alle 3 Gruppen",
+            "fr": "Comportement de la LED d'état pour les 3 canaux"
           },
           "value": "normal",
           "values": [
@@ -273,7 +299,8 @@
                 "en": "Always Off",
                 "es": "Siempre apagado",
                 "it": "Sempre spento",
-                "de": "Immer aus"
+                "de": "Immer aus",
+                "fr": "Toujours éteint"
               }
             },
             {
@@ -282,7 +309,8 @@
                 "en": "On when running",
                 "es": "Encendido cuando en marcha",
                 "it": "Acceso quando in funzione",
-                "de": "Ein bei Betrieb"
+                "de": "Ein bei Betrieb",
+                "fr": "Allumée en fonctionnement"
               }
             },
             {
@@ -291,7 +319,8 @@
                 "en": "On when stopped",
                 "es": "Encendido cuando parado",
                 "it": "Acceso quando fermo",
-                "de": "Ein bei Stillstand"
+                "de": "Ein bei Stillstand",
+                "fr": "Allumée à l'arrêt"
               }
             }
           ]
@@ -332,13 +361,15 @@
               "en": "Fan Speed",
               "es": "Velocidad del ventilador",
               "it": "Velocità ventilatore",
-              "de": "Lüftergeschwindigkeit"
+              "de": "Lüftergeschwindigkeit",
+              "fr": "Vitesse du ventilateur"
             },
             "units": {
               "en": "%",
               "es": "%",
               "it": "%",
-              "de": "%"
+              "de": "%",
+              "fr": "%"
             }
           }
         },
@@ -346,7 +377,8 @@
           "en": "Moes Dimmer 3 Gang - Gang 2",
           "es": "Regulador Moes 3 canales - Canal 2",
           "it": "Dimmer Moes 3 canali - Canale 2",
-          "de": "Moes Dimmer 3-fach - Gruppe 2"
+          "de": "Moes Dimmer 3-fach - Gruppe 2",
+          "fr": "Variateur Moes 3 canaux - Canal 2"
         },
         "energy": {
           "approximation": {
@@ -362,13 +394,15 @@
               "en": "Connected Controllers",
               "es": "Controladores conectados",
               "it": "Controller collegati",
-              "de": "Verbundene Regler"
+              "de": "Verbundene Regler",
+              "fr": "Contrôleurs connectés"
             },
             "hint": {
               "en": "Other fan controllers sharing this physical device",
               "es": "Otros controladores de ventilador que comparten este dispositivo",
               "it": "Altri controller del ventilatore che condividono questo dispositivo",
-              "de": "Andere Lüftungsregler, die dieses physische Gerät teilen"
+              "de": "Andere Lüftungsregler, die dieses physische Gerät teilen",
+              "fr": "Autres contrôleurs de ventilateur partageant cet appareil physique"
             },
             "value": "-"
           },
@@ -378,7 +412,8 @@
               "en": "Speed Control",
               "es": "Control de velocidad",
               "it": "Controllo velocità",
-              "de": "Geschwindigkeitsregelung"
+              "de": "Geschwindigkeitsregelung",
+              "fr": "Contrôle de la vitesse"
             },
             "children": [
               {
@@ -388,13 +423,15 @@
                   "en": "Min Speed",
                   "es": "Velocidad mínima",
                   "it": "Velocità minima",
-                  "de": "Mindestgeschwindigkeit"
+                  "de": "Mindestgeschwindigkeit",
+                  "fr": "Vitesse min."
                 },
                 "hint": {
                   "en": "Hardware-enforced minimum fan speed (1–46%). Written directly to device.",
                   "es": "Velocidad mínima del ventilador impuesta por hardware (1–46%).",
                   "it": "Velocità minima del ventilatore imposta dall'hardware (1–46%).",
-                  "de": "Hardware-erzwungene Mindestlüftergeschwindigkeit (1–46 %)."
+                  "de": "Hardware-erzwungene Mindestlüftergeschwindigkeit (1–46 %).",
+                  "fr": "Vitesse minimale du ventilateur imposée par le matériel (1-46 %). Écrite directement sur l'appareil."
                 },
                 "value": 10,
                 "min": 1,
@@ -409,13 +446,15 @@
                   "en": "Max Speed",
                   "es": "Velocidad máxima",
                   "it": "Velocità massima",
-                  "de": "Höchstgeschwindigkeit"
+                  "de": "Höchstgeschwindigkeit",
+                  "fr": "Vitesse max."
                 },
                 "hint": {
                   "en": "Hardware-enforced maximum fan speed (56–100%). Written directly to device.",
                   "es": "Velocidad máxima del ventilador impuesta por hardware (56–100%).",
                   "it": "Velocità massima del ventilatore imposta dall'hardware (56–100%).",
-                  "de": "Hardware-erzwungene Höchstlüftergeschwindigkeit (56–100 %)."
+                  "de": "Hardware-erzwungene Höchstlüftergeschwindigkeit (56–100 %).",
+                  "fr": "Vitesse maximale du ventilateur imposée par le matériel (56-100 %). Écrite directement sur l'appareil."
                 },
                 "value": 100,
                 "min": 56,
@@ -431,7 +470,8 @@
               "en": "Performance & Protection",
               "es": "Rendimiento y protección",
               "it": "Prestazioni e protezione",
-              "de": "Leistung und Schutz"
+              "de": "Leistung und Schutz",
+              "fr": "Performance et protection"
             },
             "children": [
               {
@@ -441,13 +481,15 @@
                   "en": "Enable Debouncing",
                   "es": "Activar antirrebote",
                   "it": "Abilita antirimbalzo",
-                  "de": "Entprellung aktivieren"
+                  "de": "Entprellung aktivieren",
+                  "fr": "Activer l'anti-rebond"
                 },
                 "hint": {
                   "en": "Reduces motor stress and network traffic during rapid speed changes",
                   "es": "Reduce el estrés del motor y el tráfico de red.",
                   "it": "Riduce lo stress del motore e il traffico di rete.",
-                  "de": "Reduziert Motorbelastung und Netzwerkverkehr."
+                  "de": "Reduziert Motorbelastung und Netzwerkverkehr.",
+                  "fr": "Réduit la contrainte sur le moteur et le trafic réseau lors de changements rapides de vitesse"
                 },
                 "value": true
               },
@@ -458,13 +500,15 @@
                   "en": "Debounce Delay",
                   "es": "Retardo antirrebote",
                   "it": "Ritardo antirimbalzo",
-                  "de": "Entprellverzögerung"
+                  "de": "Entprellverzögerung",
+                  "fr": "Délai d'anti-rebond"
                 },
                 "hint": {
                   "en": "Wait time before applying speed changes (ms)",
                   "es": "Tiempo de espera antes de aplicar cambios de velocidad (ms)",
                   "it": "Tempo di attesa prima di applicare i cambi di velocità (ms)",
-                  "de": "Wartezeit vor dem Anwenden von Geschwindigkeitsänderungen (ms)"
+                  "de": "Wartezeit vor dem Anwenden von Geschwindigkeitsänderungen (ms)",
+                  "fr": "Temps d'attente avant d'appliquer les changements de vitesse (ms)"
                 },
                 "value": 800,
                 "min": 0,
@@ -479,13 +523,15 @@
                   "en": "Motor Protection",
                   "es": "Protección del motor",
                   "it": "Protezione motore",
-                  "de": "Motorschutz"
+                  "de": "Motorschutz",
+                  "fr": "Protection du moteur"
                 },
                 "hint": {
                   "en": "Adds startup delay to prevent motor stress. Disable for LED dimmers",
                   "es": "Añade retardo de arranque. Desactivar para atenuadores LED.",
                   "it": "Aggiunge ritardo di avvio. Disabilita per dimmer LED.",
-                  "de": "Fügt Anlaufverzögerung hinzu. Für LED-Dimmer deaktivieren."
+                  "de": "Fügt Anlaufverzögerung hinzu. Für LED-Dimmer deaktivieren.",
+                  "fr": "Ajoute un délai de démarrage pour éviter la contrainte sur le moteur. À désactiver pour les variateurs LED"
                 },
                 "value": true
               },
@@ -496,13 +542,15 @@
                   "en": "Motor Startup Delay",
                   "es": "Retardo de arranque del motor",
                   "it": "Ritardo avvio motore",
-                  "de": "Motoranlaufverzögerung"
+                  "de": "Motoranlaufverzögerung",
+                  "fr": "Délai de démarrage du moteur"
                 },
                 "hint": {
                   "en": "Delay between setting speed and powering on motor (ms)",
                   "es": "Retardo entre ajustar la velocidad y encender el motor (ms)",
                   "it": "Ritardo tra velocità e accensione motore (ms)",
-                  "de": "Verzögerung zwischen Geschwindigkeit und Motorstart (ms)"
+                  "de": "Verzögerung zwischen Geschwindigkeit und Motorstart (ms)",
+                  "fr": "Délai entre le réglage de la vitesse et la mise sous tension du moteur (ms)"
                 },
                 "value": 1500,
                 "min": 0,
@@ -518,7 +566,8 @@
               "en": "Global Settings",
               "es": "Ajustes globales",
               "it": "Impostazioni globali",
-              "de": "Globale Einstellungen"
+              "de": "Globale Einstellungen",
+              "fr": "Réglages globaux"
             },
             "children": [
               {
@@ -528,13 +577,15 @@
                   "en": "Power-On & LED Settings",
                   "es": "Ajustes de encendido y LED",
                   "it": "Impostazioni accensione e LED",
-                  "de": "Einschalt- und LED-Einstellungen"
+                  "de": "Einschalt- und LED-Einstellungen",
+                  "fr": "Réglages de mise sous tension et LED"
                 },
                 "hint": {
                   "en": "Global settings (Power-On behavior and LED mode) are configured in Gang 1 (Main) and apply to all 3 gangs.",
                   "es": "Los ajustes globales se configuran en el canal 1 (principal) y se aplican a los 3 canales.",
                   "it": "Le impostazioni globali si configurano nel canale 1 (principale) e si applicano a tutti e 3 i canali.",
-                  "de": "Globale Einstellungen werden in Gruppe 1 (Haupt) konfiguriert und gelten für alle 3 Gruppen."
+                  "de": "Globale Einstellungen werden in Gruppe 1 (Haupt) konfiguriert und gelten für alle 3 Gruppen.",
+                  "fr": "Les réglages globaux (comportement à la mise sous tension et mode LED) se configurent sur le Canal 1 (principal) et s'appliquent aux 3 canaux."
                 },
                 "value": ""
               }
@@ -554,13 +605,15 @@
               "en": "Fan Speed",
               "es": "Velocidad del ventilador",
               "it": "Velocità ventilatore",
-              "de": "Lüftergeschwindigkeit"
+              "de": "Lüftergeschwindigkeit",
+              "fr": "Vitesse du ventilateur"
             },
             "units": {
               "en": "%",
               "es": "%",
               "it": "%",
-              "de": "%"
+              "de": "%",
+              "fr": "%"
             }
           }
         },
@@ -568,7 +621,8 @@
           "en": "Moes Dimmer 3 Gang - Gang 3",
           "es": "Regulador Moes 3 canales - Canal 3",
           "it": "Dimmer Moes 3 canali - Canale 3",
-          "de": "Moes Dimmer 3-fach - Gruppe 3"
+          "de": "Moes Dimmer 3-fach - Gruppe 3",
+          "fr": "Variateur Moes 3 canaux - Canal 3"
         },
         "energy": {
           "approximation": {
@@ -584,13 +638,15 @@
               "en": "Connected Controllers",
               "es": "Controladores conectados",
               "it": "Controller collegati",
-              "de": "Verbundene Regler"
+              "de": "Verbundene Regler",
+              "fr": "Contrôleurs connectés"
             },
             "hint": {
               "en": "Other fan controllers sharing this physical device",
               "es": "Otros controladores de ventilador que comparten este dispositivo",
               "it": "Altri controller del ventilatore che condividono questo dispositivo",
-              "de": "Andere Lüftungsregler, die dieses physische Gerät teilen"
+              "de": "Andere Lüftungsregler, die dieses physische Gerät teilen",
+              "fr": "Autres contrôleurs de ventilateur partageant cet appareil physique"
             },
             "value": "-"
           },
@@ -600,7 +656,8 @@
               "en": "Speed Control",
               "es": "Control de velocidad",
               "it": "Controllo velocità",
-              "de": "Geschwindigkeitsregelung"
+              "de": "Geschwindigkeitsregelung",
+              "fr": "Contrôle de la vitesse"
             },
             "children": [
               {
@@ -610,13 +667,15 @@
                   "en": "Min Speed",
                   "es": "Velocidad mínima",
                   "it": "Velocità minima",
-                  "de": "Mindestgeschwindigkeit"
+                  "de": "Mindestgeschwindigkeit",
+                  "fr": "Vitesse min."
                 },
                 "hint": {
                   "en": "Hardware-enforced minimum fan speed (1–46%). Written directly to device.",
                   "es": "Velocidad mínima del ventilador impuesta por hardware (1–46%).",
                   "it": "Velocità minima del ventilatore imposta dall'hardware (1–46%).",
-                  "de": "Hardware-erzwungene Mindestlüftergeschwindigkeit (1–46 %)."
+                  "de": "Hardware-erzwungene Mindestlüftergeschwindigkeit (1–46 %).",
+                  "fr": "Vitesse minimale du ventilateur imposée par le matériel (1-46 %). Écrite directement sur l'appareil."
                 },
                 "value": 10,
                 "min": 1,
@@ -631,13 +690,15 @@
                   "en": "Max Speed",
                   "es": "Velocidad máxima",
                   "it": "Velocità massima",
-                  "de": "Höchstgeschwindigkeit"
+                  "de": "Höchstgeschwindigkeit",
+                  "fr": "Vitesse max."
                 },
                 "hint": {
                   "en": "Hardware-enforced maximum fan speed (56–100%). Written directly to device.",
                   "es": "Velocidad máxima del ventilador impuesta por hardware (56–100%).",
                   "it": "Velocità massima del ventilatore imposta dall'hardware (56–100%).",
-                  "de": "Hardware-erzwungene Höchstlüftergeschwindigkeit (56–100 %)."
+                  "de": "Hardware-erzwungene Höchstlüftergeschwindigkeit (56–100 %).",
+                  "fr": "Vitesse maximale du ventilateur imposée par le matériel (56-100 %). Écrite directement sur l'appareil."
                 },
                 "value": 100,
                 "min": 56,
@@ -653,7 +714,8 @@
               "en": "Performance & Protection",
               "es": "Rendimiento y protección",
               "it": "Prestazioni e protezione",
-              "de": "Leistung und Schutz"
+              "de": "Leistung und Schutz",
+              "fr": "Performance et protection"
             },
             "children": [
               {
@@ -663,13 +725,15 @@
                   "en": "Enable Debouncing",
                   "es": "Activar antirrebote",
                   "it": "Abilita antirimbalzo",
-                  "de": "Entprellung aktivieren"
+                  "de": "Entprellung aktivieren",
+                  "fr": "Activer l'anti-rebond"
                 },
                 "hint": {
                   "en": "Reduces motor stress and network traffic during rapid speed changes",
                   "es": "Reduce el estrés del motor y el tráfico de red.",
                   "it": "Riduce lo stress del motore e il traffico di rete.",
-                  "de": "Reduziert Motorbelastung und Netzwerkverkehr."
+                  "de": "Reduziert Motorbelastung und Netzwerkverkehr.",
+                  "fr": "Réduit la contrainte sur le moteur et le trafic réseau lors de changements rapides de vitesse"
                 },
                 "value": true
               },
@@ -680,13 +744,15 @@
                   "en": "Debounce Delay",
                   "es": "Retardo antirrebote",
                   "it": "Ritardo antirimbalzo",
-                  "de": "Entprellverzögerung"
+                  "de": "Entprellverzögerung",
+                  "fr": "Délai d'anti-rebond"
                 },
                 "hint": {
                   "en": "Wait time before applying speed changes (ms)",
                   "es": "Tiempo de espera antes de aplicar cambios de velocidad (ms)",
                   "it": "Tempo di attesa prima di applicare i cambi di velocità (ms)",
-                  "de": "Wartezeit vor dem Anwenden von Geschwindigkeitsänderungen (ms)"
+                  "de": "Wartezeit vor dem Anwenden von Geschwindigkeitsänderungen (ms)",
+                  "fr": "Temps d'attente avant d'appliquer les changements de vitesse (ms)"
                 },
                 "value": 800,
                 "min": 0,
@@ -701,13 +767,15 @@
                   "en": "Motor Protection",
                   "es": "Protección del motor",
                   "it": "Protezione motore",
-                  "de": "Motorschutz"
+                  "de": "Motorschutz",
+                  "fr": "Protection du moteur"
                 },
                 "hint": {
                   "en": "Adds startup delay to prevent motor stress. Disable for LED dimmers",
                   "es": "Añade retardo de arranque. Desactivar para atenuadores LED.",
                   "it": "Aggiunge ritardo di avvio. Disabilita per dimmer LED.",
-                  "de": "Fügt Anlaufverzögerung hinzu. Für LED-Dimmer deaktivieren."
+                  "de": "Fügt Anlaufverzögerung hinzu. Für LED-Dimmer deaktivieren.",
+                  "fr": "Ajoute un délai de démarrage pour éviter la contrainte sur le moteur. À désactiver pour les variateurs LED"
                 },
                 "value": true
               },
@@ -718,13 +786,15 @@
                   "en": "Motor Startup Delay",
                   "es": "Retardo de arranque del motor",
                   "it": "Ritardo avvio motore",
-                  "de": "Motoranlaufverzögerung"
+                  "de": "Motoranlaufverzögerung",
+                  "fr": "Délai de démarrage du moteur"
                 },
                 "hint": {
                   "en": "Delay between setting speed and powering on motor (ms)",
                   "es": "Retardo entre ajustar la velocidad y encender el motor (ms)",
                   "it": "Ritardo tra velocità e accensione motore (ms)",
-                  "de": "Verzögerung zwischen Geschwindigkeit und Motorstart (ms)"
+                  "de": "Verzögerung zwischen Geschwindigkeit und Motorstart (ms)",
+                  "fr": "Délai entre le réglage de la vitesse et la mise sous tension du moteur (ms)"
                 },
                 "value": 1500,
                 "min": 0,
@@ -740,7 +810,8 @@
               "en": "Global Settings",
               "es": "Ajustes globales",
               "it": "Impostazioni globali",
-              "de": "Globale Einstellungen"
+              "de": "Globale Einstellungen",
+              "fr": "Réglages globaux"
             },
             "children": [
               {
@@ -750,13 +821,15 @@
                   "en": "Power-On & LED Settings",
                   "es": "Ajustes de encendido y LED",
                   "it": "Impostazioni accensione e LED",
-                  "de": "Einschalt- und LED-Einstellungen"
+                  "de": "Einschalt- und LED-Einstellungen",
+                  "fr": "Réglages de mise sous tension et LED"
                 },
                 "hint": {
                   "en": "Global settings (Power-On behavior and LED mode) are configured in Gang 1 (Main) and apply to all 3 gangs.",
                   "es": "Los ajustes globales se configuran en el canal 1 (principal) y se aplican a los 3 canales.",
                   "it": "Le impostazioni globali si configurano nel canale 1 (principale) e si applicano a tutti e 3 i canali.",
-                  "de": "Globale Einstellungen werden in Gruppe 1 (Haupt) konfiguriert und gelten für alle 3 Gruppen."
+                  "de": "Globale Einstellungen werden in Gruppe 1 (Haupt) konfiguriert und gelten für alle 3 Gruppen.",
+                  "fr": "Les réglages globaux (comportement à la mise sous tension et mode LED) se configurent sur le Canal 1 (principal) et s'appliquent aux 3 canaux."
                 },
                 "value": ""
               }
@@ -771,7 +844,8 @@
         "en": "Three fan controllers will be created, one for each channel. Gang 1 (Main) contains global settings that affect all gangs. Press the reset switch 6 times rapidly, then hold until the LED flashes to enter pairing mode.",
         "es": "Se crearán tres controladores de ventilador, uno por canal. El canal 1 (principal) contiene ajustes globales. Pulsa el interruptor de reinicio 6 veces rápidamente y luego mantenlo hasta que el LED parpadee.",
         "it": "Verranno creati tre controller del ventilatore, uno per canale. Il canale 1 (principale) contiene le impostazioni globali. Premi l'interruttore di reset 6 volte rapidamente, poi tieni premuto fino a quando il LED lampeggia.",
-        "de": "Es werden drei Lüftungsregler erstellt, einer pro Kanal. Gruppe 1 (Haupt) enthält globale Einstellungen. Drücke den Reset-Schalter 6-mal schnell, dann halte ihn gedrückt, bis die LED blinkt."
+        "de": "Es werden drei Lüftungsregler erstellt, einer pro Kanal. Gruppe 1 (Haupt) enthält globale Einstellungen. Drücke den Reset-Schalter 6-mal schnell, dann halte ihn gedrückt, bis die LED blinkt.",
+        "fr": "Trois contrôleurs de ventilateur seront créés, un par canal. Le Canal 1 (principal) contient les réglages globaux qui affectent tous les canaux. Appuyez rapidement 6 fois sur l'interrupteur de réinitialisation, puis maintenez-le enfoncé jusqu'à ce que la LED clignote pour entrer en mode d'appairage."
       }
     }
   },

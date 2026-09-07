@@ -10,13 +10,15 @@
     "en": "Moes Devices",
     "es": "Moes Devices",
     "it": "Moes Devices",
-    "de": "Moes Devices"
+    "de": "Moes Devices",
+    "fr": "Moes Devices"
   },
   "description": {
     "en": "Moes Zigbee devices: 3-gang fan/dimmer controller and mmWave radar presence sensor (Linptech)",
     "es": "Dispositivos Zigbee Moes: controlador regulador/ventilador de 3 canales y sensor de presencia radar mmWave (Linptech)",
     "it": "Dispositivi Zigbee Moes: controller dimmer/ventilatore a 3 canali e sensore di presenza radar mmWave (Linptech)",
-    "de": "Moes Zigbee-Geräte: 3-fach Lüfter-/Dimmer-Regler und mmWave-Radar-Präsenzsensor (Linptech)"
+    "de": "Moes Zigbee-Geräte: 3-fach Lüfter-/Dimmer-Regler und mmWave-Radar-Präsenzsensor (Linptech)",
+    "fr": "Appareils Zigbee Moes : contrôleur de ventilateur/variateur à 3 canaux et capteur de présence radar mmWave (Linptech)"
   },
   "category": [
     "appliances"
@@ -25,7 +27,8 @@
     "en": ["zigbee", "moes", "linptech", "dimmer", "fan controller", "radar", "presence", "mmwave", "sensor"],
     "es": ["zigbee", "moes", "linptech", "atenuador", "controlador de ventilador", "radar", "presencia", "mmwave", "sensor"],
     "it": ["zigbee", "moes", "linptech", "dimmer", "regolatore ventilatore", "radar", "presenza", "mmwave", "sensore"],
-    "de": ["zigbee", "moes", "linptech", "dimmer", "lüfterregler", "radar", "präsenz", "mmwave", "sensor"]
+    "de": ["zigbee", "moes", "linptech", "dimmer", "lüfterregler", "radar", "präsenz", "mmwave", "sensor"],
+    "fr": ["zigbee", "moes", "linptech", "variateur", "contrôleur de ventilateur", "radar", "présence", "mmwave", "capteur"]
   },
   "brandColor": "#BAA586",
   "support": "mailto:g.machado@me.com",
@@ -40,13 +43,9 @@
     "email": "g.machado@me.com"
   },
   "api": {
-    "getMessageStats": {
+    "getRejoinStats": {
       "method": "GET",
-      "path": "/message-stats"
-    },
-    "resetMessageStats": {
-      "method": "POST",
-      "path": "/message-stats/reset"
+      "path": "/rejoin-stats"
     },
     "resetRejoinStats": {
       "method": "POST",

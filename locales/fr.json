@@ -1,0 +1,25 @@
+{
+  "settings": {
+    "title": "Historique des reconnexions",
+    "eyebrow": "Moes",
+    "intro": "Suit le moment où un appareil se reconnecte au réseau Zigbee après une coupure de courant.",
+    "refresh": "Actualiser",
+    "waiting_for_data": "En attente de données…",
+    "device": "Appareil",
+    "loading": "Chargement des statistiques…",
+    "refreshing": "Actualisation…",
+    "failed_load": "Échec du chargement :",
+    "updated_at": "Mis à jour à",
+    "confirmation_failed": "Échec de la confirmation :",
+    "rejoins": "Reconnexions",
+    "rejoins_since": "Reconnexions suivies depuis",
+    "reset_rejoins": "Réinitialiser les reconnexions",
+    "resetting_rejoins": "Réinitialisation…",
+    "reset_rejoins_failed": "Échec de la réinitialisation :",
+    "reset_rejoins_confirmation": "Réinitialiser les compteurs de reconnexion pour tous les appareils ? Cette action est irréversible.",
+    "total_rejoins": "Total des reconnexions",
+    "devices_with_rejoins": "Appareils concernés",
+    "last_rejoin": "Dernière reconnexion",
+    "no_rejoins": "Aucune reconnexion enregistrée pour l'instant."
+  }
+}

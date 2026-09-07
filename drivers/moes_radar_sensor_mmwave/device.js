@@ -266,6 +266,8 @@ class RadarSensorMmwaveDevice extends TuyaSpecificClusterDevice {
   }
 
   async onSettings({ newSettings, changedKeys }) {
+    RejoinManager.suppressAnnounce(this);
+
     const manuCluster = this.zclNode?.endpoints?.[this.tuyaEndpoint]?.clusters?.manuSpecificTuya3;
 
     // manuTuya3 attribute writes (Linptech-native path)

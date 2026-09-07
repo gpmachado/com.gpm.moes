@@ -2,6 +2,7 @@
 
 const TuyaSpecificClusterDevice = require('../../lib/TuyaSpecificClusterDevice');
 const { AvailabilityManagerPassive } = require('../../lib/AvailabilityManager');
+const RejoinManager = require('../../lib/RejoinManager');
 const { TimeServerBoundCluster } = require('../../lib/TimeCluster');
 const IASZoneHelper = require('../../lib/IASZoneHelper');
 
@@ -49,6 +50,7 @@ class RadarSensorMmwaveDevice extends TuyaSpecificClusterDevice {
       pollBeforeOffline: false,
     });
     await this._availability.install();
+    await RejoinManager.watchAnnounceFrame(this);
 
     const ep = this.zclNode?.endpoints?.[this.tuyaEndpoint];
 

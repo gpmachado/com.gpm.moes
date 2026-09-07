@@ -7,10 +7,10 @@
     "local"
   ],
   "name": {
-    "en": "Moes",
-    "es": "Moes",
-    "it": "Moes",
-    "de": "Moes"
+    "en": "Moes Devices",
+    "es": "Moes Devices",
+    "it": "Moes Devices",
+    "de": "Moes Devices"
   },
   "description": {
     "en": "Moes Zigbee devices: 3-gang fan/dimmer controller and mmWave radar presence sensor (Linptech)",

@@ -1,0 +1,8 @@
+{
+  "triggers": [
+    {
+      "$extends": "device_rejoined",
+      "$id": "moes_radar_sensor_mmwave_device_rejoined"
+    }
+  ]
+}

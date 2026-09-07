@@ -2,6 +2,7 @@
 
 const TuyaSpecificClusterDevice = require('../../lib/TuyaSpecificClusterDevice');
 const { AvailabilityManagerPassive } = require('../../lib/AvailabilityManager');
+const RejoinManager = require('../../lib/RejoinManager');
 const { TimeServerBoundCluster } = require('../../lib/TimeCluster');
 const { APP_VERSION } = require('../../lib/constants');
 
@@ -119,6 +120,8 @@ class MoesDimmer3Gang extends TuyaSpecificClusterDevice {
     const value = this._parseDataValue(data);
     if (value === null || value === undefined) return;
 
+    if (this._isMain) RejoinManager.notifyIfRejoinDatapoint(this, data.dp);
+
     const { sw, dim, min, max } = this._gangDp;
 
     switch (data.dp) {
@@ -162,10 +165,7 @@ class MoesDimmer3Gang extends TuyaSpecificClusterDevice {
 
       // global (main device only)
       case DP.POWER_ON:
-        if (this._isMain) {
-          await this._syncSetting('powerOnState', POWER_ON_MODE[value]);
-          this._notifyRejoin();
-        }
+        if (this._isMain) await this._syncSetting('powerOnState', POWER_ON_MODE[value]);
         break;
 
       case DP.BACKLIGHT:
@@ -290,6 +290,7 @@ class MoesDimmer3Gang extends TuyaSpecificClusterDevice {
   async _writeEnumSetting(dp, modeMap, newMode) {
     const entry = Object.entries(modeMap).find(([, v]) => v === newMode);
     if (!entry) throw new Error(`Invalid mode: ${newMode}`);
+    RejoinManager.markSelfWrite(this, dp);
     await this.writeEnum(dp, Number(entry[0]));
     this.log(`DP${dp} → ${newMode}`);
   }
@@ -311,20 +312,6 @@ class MoesDimmer3Gang extends TuyaSpecificClusterDevice {
 
   _sleep(ms) {
     return new Promise(r => this.homey.setTimeout(r, ms));
-  }
-
-  /** DP.POWER_ON only fires on power restore — use as rejoin signal. */
-  _notifyRejoin() {
-    const now = Date.now();
-    if ((now - (this._lastRejoinTs ?? 0)) < 30_000) return; // burst cooldown
-    this._lastRejoinTs = now;
-    this.onDeviceRejoin();
-  }
-
-  onDeviceRejoin() {
-    this.log(`${this._gangName} Device rejoined`);
-    const AvailabilityManager = require('../../lib/AvailabilityManager');
-    AvailabilityManager.triggerRejoin(this);
   }
 
   onRenamed(name) {

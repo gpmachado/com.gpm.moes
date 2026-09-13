@@ -4,6 +4,7 @@ const TuyaSpecificClusterDevice = require('../../lib/TuyaSpecificClusterDevice')
 const RejoinManager = require('../../lib/RejoinManager');
 const { TimeServerBoundCluster } = require('../../lib/TimeCluster');
 const IASZoneHelper = require('../../lib/IASZoneHelper');
+const { writeAttributesVerbose } = require('../../lib/zclDebug');
 
 const DATA_POINTS = {
   PRESENCE_STATE: 1,
@@ -267,7 +268,7 @@ class RadarSensorMmwaveDevice extends TuyaSpecificClusterDevice {
     // manuTuya3 attribute writes (Linptech-native path)
     if (changedKeys.includes('motion_sensitivity') && manuCluster?.writeAttributes) {
       try {
-        await manuCluster.writeAttributes({ motionSensitivity: Number(newSettings.motion_sensitivity) });
+        await writeAttributesVerbose(this, manuCluster, { motionSensitivity: Number(newSettings.motion_sensitivity) });
         this.log('[mmWave] Wrote motion sensitivity via manuTuya3');
       } catch (e) {
         this.log('[mmWave] manuTuya3 motion sensitivity write skipped:', e.message);
@@ -276,7 +277,7 @@ class RadarSensorMmwaveDevice extends TuyaSpecificClusterDevice {
 
     if (changedKeys.includes('static_sensitivity') && manuCluster?.writeAttributes) {
       try {
-        await manuCluster.writeAttributes({ staticSensitivity: Number(newSettings.static_sensitivity) });
+        await writeAttributesVerbose(this, manuCluster, { staticSensitivity: Number(newSettings.static_sensitivity) });
         this.log('[mmWave] Wrote static sensitivity via manuTuya3');
       } catch (e) {
         this.log('[mmWave] manuTuya3 static sensitivity write skipped:', e.message);
@@ -285,7 +286,7 @@ class RadarSensorMmwaveDevice extends TuyaSpecificClusterDevice {
 
     if (changedKeys.includes('motion_detection_distance') && manuCluster?.writeAttributes) {
       try {
-        await manuCluster.writeAttributes({ motionDetectionDistance: Number(newSettings.motion_detection_distance) });
+        await writeAttributesVerbose(this, manuCluster, { motionDetectionDistance: Number(newSettings.motion_detection_distance) });
         this.log('[mmWave] Wrote motion detection distance via manuTuya3');
       } catch (e) {
         this.log('[mmWave] manuTuya3 detection distance write skipped:', e.message);
@@ -294,7 +295,7 @@ class RadarSensorMmwaveDevice extends TuyaSpecificClusterDevice {
 
     if (changedKeys.includes('led_indicator') && manuCluster?.writeAttributes) {
       try {
-        await manuCluster.writeAttributes({ ledIndicator: newSettings.led_indicator ? 1 : 0 });
+        await writeAttributesVerbose(this, manuCluster, { ledIndicator: newSettings.led_indicator ? 1 : 0 });
         this.log('[mmWave] Wrote led indicator via manuTuya3:', newSettings.led_indicator);
       } catch (e) {
         this.log('[mmWave] manuTuya3 led indicator write skipped:', e.message);

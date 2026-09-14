@@ -1,0 +1,45 @@
+{
+  "id": "moes_remote_4_gang_simulate_press",
+  "title": {
+    "en": "Simulate button press",
+    "de": "Tastendruck simulieren",
+    "es": "Simular pulsación de botón",
+    "it": "Simula pressione pulsante",
+    "fr": "Simuler un appui sur le bouton"
+  },
+  "titleFormatted": {
+    "en": "Simulate [[action]] press on button [[button]]",
+    "de": "[[action]]-Druck auf Taste [[button]] simulieren",
+    "es": "Simular pulsación [[action]] en el botón [[button]]",
+    "it": "Simula pressione [[action]] sul pulsante [[button]]",
+    "fr": "Simuler une pression [[action]] sur le bouton [[button]]"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=moes_remote_4_gang"
+    },
+    {
+      "name": "button",
+      "type": "dropdown",
+      "title": { "en": "Button", "de": "Taste", "es": "Botón", "it": "Pulsante", "fr": "Bouton" },
+      "values": [
+        { "id": "1", "label": { "en": "1", "de": "1", "es": "1", "it": "1", "fr": "1" } },
+        { "id": "2", "label": { "en": "2", "de": "2", "es": "2", "it": "2", "fr": "2" } },
+        { "id": "3", "label": { "en": "3", "de": "3", "es": "3", "it": "3", "fr": "3" } },
+        { "id": "4", "label": { "en": "4", "de": "4", "es": "4", "it": "4", "fr": "4" } }
+      ]
+    },
+    {
+      "name": "action",
+      "type": "dropdown",
+      "title": { "en": "Action", "de": "Aktion", "es": "Acción", "it": "Azione", "fr": "Action" },
+      "values": [
+        { "id": "single", "label": { "en": "Single", "de": "Einzelklick", "es": "Única", "it": "Singola", "fr": "Simple" } },
+        { "id": "double", "label": { "en": "Double", "de": "Doppelklick", "es": "Doble", "it": "Doppia", "fr": "Double" } },
+        { "id": "long",   "label": { "en": "Hold", "de": "Halten", "es": "Mantener", "it": "Tieni premuto", "fr": "Maintenir" } }
+      ]
+    }
+  ]
+}

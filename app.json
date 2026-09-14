@@ -108,6 +108,128 @@
     "zigbee-clusters": "^3.6.1"
   },
   "flow": {
+    "actions": [
+      {
+        "id": "moes_remote_4_gang_simulate_press",
+        "title": {
+          "en": "Simulate button press",
+          "de": "Tastendruck simulieren",
+          "es": "Simular pulsación de botón",
+          "it": "Simula pressione pulsante",
+          "fr": "Simuler un appui sur le bouton"
+        },
+        "titleFormatted": {
+          "en": "Simulate [[action]] press on button [[button]]",
+          "de": "[[action]]-Druck auf Taste [[button]] simulieren",
+          "es": "Simular pulsación [[action]] en el botón [[button]]",
+          "it": "Simula pressione [[action]] sul pulsante [[button]]",
+          "fr": "Simuler une pression [[action]] sur le bouton [[button]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=moes_remote_4_gang"
+          },
+          {
+            "name": "button",
+            "type": "dropdown",
+            "title": {
+              "en": "Button",
+              "de": "Taste",
+              "es": "Botón",
+              "it": "Pulsante",
+              "fr": "Bouton"
+            },
+            "values": [
+              {
+                "id": "1",
+                "label": {
+                  "en": "1",
+                  "de": "1",
+                  "es": "1",
+                  "it": "1",
+                  "fr": "1"
+                }
+              },
+              {
+                "id": "2",
+                "label": {
+                  "en": "2",
+                  "de": "2",
+                  "es": "2",
+                  "it": "2",
+                  "fr": "2"
+                }
+              },
+              {
+                "id": "3",
+                "label": {
+                  "en": "3",
+                  "de": "3",
+                  "es": "3",
+                  "it": "3",
+                  "fr": "3"
+                }
+              },
+              {
+                "id": "4",
+                "label": {
+                  "en": "4",
+                  "de": "4",
+                  "es": "4",
+                  "it": "4",
+                  "fr": "4"
+                }
+              }
+            ]
+          },
+          {
+            "name": "action",
+            "type": "dropdown",
+            "title": {
+              "en": "Action",
+              "de": "Aktion",
+              "es": "Acción",
+              "it": "Azione",
+              "fr": "Action"
+            },
+            "values": [
+              {
+                "id": "single",
+                "label": {
+                  "en": "Single",
+                  "de": "Einzelklick",
+                  "es": "Única",
+                  "it": "Singola",
+                  "fr": "Simple"
+                }
+              },
+              {
+                "id": "double",
+                "label": {
+                  "en": "Double",
+                  "de": "Doppelklick",
+                  "es": "Doble",
+                  "it": "Doppia",
+                  "fr": "Double"
+                }
+              },
+              {
+                "id": "long",
+                "label": {
+                  "en": "Hold",
+                  "de": "Halten",
+                  "es": "Mantener",
+                  "it": "Tieni premuto",
+                  "fr": "Maintenir"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "triggers": [
       {
         "id": "moes_dimmer_3_gang_device_rejoined",
@@ -154,6 +276,126 @@
             "type": "device",
             "name": "device",
             "filter": "driver_id=moes_radar_sensor_mmwave"
+          }
+        ]
+      },
+      {
+        "id": "moes_remote_4_gang_button",
+        "title": {
+          "en": "Button action",
+          "de": "Tastenaktion",
+          "es": "Acción del botón",
+          "it": "Azione del pulsante",
+          "fr": "Action du bouton"
+        },
+        "titleFormatted": {
+          "en": "Button [[button]] — [[action]]",
+          "de": "Taste [[button]] - [[action]]",
+          "es": "Botón [[button]] - [[action]]",
+          "it": "Pulsante [[button]] - [[action]]",
+          "fr": "Bouton [[button]] - [[action]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=moes_remote_4_gang"
+          },
+          {
+            "name": "button",
+            "type": "dropdown",
+            "title": {
+              "en": "Button",
+              "de": "Taste",
+              "es": "Botón",
+              "it": "Pulsante",
+              "fr": "Bouton"
+            },
+            "values": [
+              {
+                "id": "1",
+                "label": {
+                  "en": "1",
+                  "de": "1",
+                  "es": "1",
+                  "it": "1",
+                  "fr": "1"
+                }
+              },
+              {
+                "id": "2",
+                "label": {
+                  "en": "2",
+                  "de": "2",
+                  "es": "2",
+                  "it": "2",
+                  "fr": "2"
+                }
+              },
+              {
+                "id": "3",
+                "label": {
+                  "en": "3",
+                  "de": "3",
+                  "es": "3",
+                  "it": "3",
+                  "fr": "3"
+                }
+              },
+              {
+                "id": "4",
+                "label": {
+                  "en": "4",
+                  "de": "4",
+                  "es": "4",
+                  "it": "4",
+                  "fr": "4"
+                }
+              }
+            ]
+          },
+          {
+            "name": "action",
+            "type": "dropdown",
+            "title": {
+              "en": "Action",
+              "de": "Aktion",
+              "es": "Acción",
+              "it": "Azione",
+              "fr": "Action"
+            },
+            "values": [
+              {
+                "id": "single",
+                "label": {
+                  "en": "Single",
+                  "de": "Einzelklick",
+                  "es": "Única",
+                  "it": "Singola",
+                  "fr": "Simple"
+                }
+              },
+              {
+                "id": "double",
+                "label": {
+                  "en": "Double",
+                  "de": "Doppelklick",
+                  "es": "Doble",
+                  "it": "Doppia",
+                  "fr": "Double"
+                }
+              },
+              {
+                "id": "long",
+                "label": {
+                  "en": "Hold",
+                  "de": "Halten",
+                  "es": "Mantener",
+                  "it": "Tieni premuto",
+                  "fr": "Maintenir"
+                }
+              }
+            ]
           }
         ]
       }
@@ -1405,9 +1647,201 @@
           ]
         }
       ]
+    },
+    {
+      "id": "moes_remote_4_gang",
+      "name": {
+        "en": "Moes 4 Gang Wall Remote",
+        "de": "Moes 4-fach-Wandfernbedienung",
+        "es": "Mando de pared Moes de 4 botones",
+        "it": "Telecomando da parete Moes a 4 tasti"
+      },
+      "class": "remote",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "measure_battery",
+        "last_button",
+        "last_action",
+        "last_click",
+        "button1_action",
+        "button2_action",
+        "button3_action",
+        "button4_action"
+      ],
+      "images": {
+        "xlarge": "/drivers/moes_remote_4_gang/assets/images/xlarge.png",
+        "large": "/drivers/moes_remote_4_gang/assets/images/large.png",
+        "small": "/drivers/moes_remote_4_gang/assets/images/small.png"
+      },
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_wkai4ga5"
+        ],
+        "productId": [
+          "TS0044"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "2": {
+            "clusters": [
+              1,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "3": {
+            "clusters": [
+              1,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "4": {
+            "clusters": [
+              1,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/moes_remote_4_gang/assets/icon.svg",
+          "instruction": {
+            "en": "Press the lower-left button for ~10 seconds until all LEDs start blinking.",
+            "de": "Drücke die untere linke Taste etwa 10 Sekunden lang, bis alle LEDs zu blinken beginnen.",
+            "es": "Pulsa el botón inferior izquierdo durante unos 10 segundos hasta que todos los LED empiecen a parpadear.",
+            "it": "Premi il pulsante in basso a sinistra per circa 10 secondi finché tutti i LED non iniziano a lampeggiare."
+          }
+        }
+      },
+      "settings": []
     }
   ],
   "capabilities": {
+    "button1_action": {
+      "type": "string",
+      "title": {
+        "en": "Button 1",
+        "de": "Taste 1",
+        "es": "Botón 1",
+        "it": "Pulsante 1",
+        "fr": "Bouton 1"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "/assets/capabilities/button1.svg"
+    },
+    "button2_action": {
+      "type": "string",
+      "title": {
+        "en": "Button 2",
+        "de": "Taste 2",
+        "es": "Botón 2",
+        "it": "Pulsante 2",
+        "fr": "Bouton 2"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "/assets/capabilities/button2.svg"
+    },
+    "button3_action": {
+      "type": "string",
+      "title": {
+        "en": "Button 3",
+        "de": "Taste 3",
+        "es": "Botón 3",
+        "it": "Pulsante 3",
+        "fr": "Bouton 3"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "/assets/capabilities/button3.svg"
+    },
+    "button4_action": {
+      "type": "string",
+      "title": {
+        "en": "Button 4",
+        "de": "Taste 4",
+        "es": "Botón 4",
+        "it": "Pulsante 4",
+        "fr": "Bouton 4"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "/assets/capabilities/button4.svg"
+    },
+    "last_action": {
+      "type": "string",
+      "title": {
+        "en": "Last action",
+        "de": "Letzte Aktion",
+        "es": "Última acción",
+        "it": "Ultima azione",
+        "fr": "Dernière action"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "/assets/capabilities/last_action.svg"
+    },
+    "last_button": {
+      "type": "number",
+      "title": {
+        "en": "Last button",
+        "de": "Letzte Taste",
+        "es": "Último botón",
+        "it": "Ultimo pulsante",
+        "fr": "Dernier bouton"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "/assets/capabilities/last_button.svg",
+      "decimals": 0
+    },
+    "last_click": {
+      "type": "string",
+      "title": {
+        "en": "Last click",
+        "de": "Letzter Klick",
+        "es": "Último clic",
+        "it": "Ultimo clic",
+        "fr": "Dernier clic"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "/assets/capabilities/last_click.svg"
+    },
     "presence_keep_time": {
       "type": "number",
       "title": {

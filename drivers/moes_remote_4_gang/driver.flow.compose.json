@@ -1,0 +1,32 @@
+{
+  "triggers": [
+    {
+      "id": "moes_remote_4_gang_button",
+      "title": { "en": "Button action", "de": "Tastenaktion", "es": "Acción del botón", "it": "Azione del pulsante", "fr": "Action du bouton" },
+      "titleFormatted": { "en": "Button [[button]] — [[action]]", "de": "Taste [[button]] - [[action]]", "es": "Botón [[button]] - [[action]]", "it": "Pulsante [[button]] - [[action]]", "fr": "Bouton [[button]] - [[action]]" },
+      "args": [
+        {
+          "name": "button",
+          "type": "dropdown",
+          "title": { "en": "Button", "de": "Taste", "es": "Botón", "it": "Pulsante", "fr": "Bouton" },
+          "values": [
+            { "id": "1", "label": { "en": "1", "de": "1", "es": "1", "it": "1", "fr": "1" } },
+            { "id": "2", "label": { "en": "2", "de": "2", "es": "2", "it": "2", "fr": "2" } },
+            { "id": "3", "label": { "en": "3", "de": "3", "es": "3", "it": "3", "fr": "3" } },
+            { "id": "4", "label": { "en": "4", "de": "4", "es": "4", "it": "4", "fr": "4" } }
+          ]
+        },
+        {
+          "name": "action",
+          "type": "dropdown",
+          "title": { "en": "Action", "de": "Aktion", "es": "Acción", "it": "Azione", "fr": "Action" },
+          "values": [
+            { "id": "single", "label": { "en": "Single", "de": "Einzelklick", "es": "Única", "it": "Singola", "fr": "Simple" } },
+            { "id": "double", "label": { "en": "Double", "de": "Doppelklick", "es": "Doble", "it": "Doppia", "fr": "Double" } },
+            { "id": "long",   "label": { "en": "Hold", "de": "Halten", "es": "Mantener", "it": "Tieni premuto", "fr": "Maintenir" } }
+          ]
+        }
+      ]
+    }
+  ]
+}

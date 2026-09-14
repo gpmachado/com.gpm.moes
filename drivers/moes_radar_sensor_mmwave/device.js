@@ -42,6 +42,7 @@ class RadarSensorMmwaveDevice extends TuyaSpecificClusterDevice {
     this._errorsByDp = {};
     this._initAt = Date.now();
     this._lastTargetDistance = null;
+    this._distanceSamples = [];
     this._presenceKeepTime = null;
     this._occupied = null;
 
@@ -353,13 +354,25 @@ class RadarSensorMmwaveDevice extends TuyaSpecificClusterDevice {
     return Buffer.isBuffer(value) ? value.toString('hex') : String(value);
   }
 
+  /**
+   * Rejects single-sample spikes in target distance (radar multipath/reflection
+   * noise regularly reports one wildly off reading between otherwise-stable
+   * ones) by taking the median of the last 3 raw cm readings.
+   */
+  _medianDistance(rawCm) {
+    this._distanceSamples.push(rawCm);
+    if (this._distanceSamples.length > 3) this._distanceSamples.shift();
+    const sorted = [...this._distanceSamples].sort((a, b) => a - b);
+    return sorted[Math.floor(sorted.length / 2)];
+  }
+
   _handleManuTuyaAttr(attrId, value, key) {
     this._debugLog(`manuTuya3 attr.${attrId} [${key}]: ${value}`);
 
     switch (attrId) {
       case MANU_ATTR.TARGET_DISTANCE:
         this._lastTargetDistance = value;
-        this._setCapabilityValue('measure_distance', Math.round(value / 100 * 10) / 10);
+        this._setCapabilityValue('measure_distance', Math.round(this._medianDistance(value) / 100 * 10) / 10);
         this.log('[mmWave] target distance:', value, 'cm');
         break;
 

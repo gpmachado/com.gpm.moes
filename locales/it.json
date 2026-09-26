@@ -1,8 +1,8 @@
 {
   "settings": {
-    "title": "Cronologia riconnessioni",
-    "eyebrow": "Moes",
-    "intro": "Traccia quando un dispositivo si riconnette alla rete Zigbee dopo un'interruzione di corrente.",
+    "title": "Traffico Zigbee",
+    "eyebrow": "Moes · EP1 monitorato",
+    "intro": "Una riga per dispositivo fisico. I dispositivi multicanale vengono conteggiati una sola volta tramite il dispositivo principale.",
     "refresh": "Aggiorna ora",
     "waiting_for_data": "In attesa dei dati…",
     "device": "Dispositivo",
@@ -20,6 +20,29 @@
     "total_rejoins": "Riconnessioni totali",
     "devices_with_rejoins": "Dispositivi interessati",
     "last_rejoin": "Ultima riconnessione",
-    "no_rejoins": "Nessuna riconnessione registrata finora."
+    "no_rejoins": "Nessuna riconnessione registrata finora.",
+    "reset": "Azzera statistiche",
+    "physical_devices": "Dispositivi fisici",
+    "messages_24h": "Messaggi · 24 h",
+    "messages_current_hour": "Messaggi · ora corrente",
+    "most_active_current_hour": "Più attivo · ora corrente",
+    "sort_by": "Ordina per",
+    "sort_name": "Nome A–Z",
+    "sort_24h": "Più messaggi · 24 h",
+    "sort_current_hour": "Più messaggi · ora corrente",
+    "sort_previous_hour": "Più messaggi · ora precedente",
+    "sort_recent": "Attività più recente",
+    "current_hour": "Ora corrente",
+    "previous_hour": "Ora precedente",
+    "last_message": "Ultimo messaggio",
+    "footnote": "I “frame” sono messaggi Zigbee grezzi. “Attività” rappresenta callback espliciti dai sensori in sospensione. I dati vengono salvati al massimo una volta ogni cinque minuti.",
+    "no_devices": "Nessun dispositivo monitorato è attivo.",
+    "frames": "frame",
+    "activity": "attività",
+    "resetting": "Azzeramento…",
+    "reset_failed": "Azzeramento non riuscito:",
+    "reset_confirmation": "Azzerare tutte le statistiche del traffico Zigbee? Questa operazione non può essere annullata.",
+    "tab_traffic": "Traffico",
+    "tab_rejoins": "Riconnessioni"
   }
 }

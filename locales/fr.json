@@ -1,8 +1,8 @@
 {
   "settings": {
-    "title": "Historique des reconnexions",
-    "eyebrow": "Moes",
-    "intro": "Suit le moment où un appareil se reconnecte au réseau Zigbee après une coupure de courant.",
+    "title": "Trafic Zigbee",
+    "eyebrow": "Moes · EP1 surveillé",
+    "intro": "Une ligne par appareil physique. Les appareils multi-canaux sont comptés une seule fois via leur appareil principal.",
     "refresh": "Actualiser",
     "waiting_for_data": "En attente de données…",
     "device": "Appareil",
@@ -20,6 +20,29 @@
     "total_rejoins": "Total des reconnexions",
     "devices_with_rejoins": "Appareils concernés",
     "last_rejoin": "Dernière reconnexion",
-    "no_rejoins": "Aucune reconnexion enregistrée pour l'instant."
+    "no_rejoins": "Aucune reconnexion enregistrée pour l'instant.",
+    "reset": "Réinitialiser les statistiques",
+    "physical_devices": "Appareils physiques",
+    "messages_24h": "Messages · 24 h",
+    "messages_current_hour": "Messages · heure en cours",
+    "most_active_current_hour": "Plus actif · heure en cours",
+    "sort_by": "Trier par",
+    "sort_name": "Nom A–Z",
+    "sort_24h": "Plus de messages · 24 h",
+    "sort_current_hour": "Plus de messages · heure en cours",
+    "sort_previous_hour": "Plus de messages · heure précédente",
+    "sort_recent": "Activité la plus récente",
+    "current_hour": "Heure en cours",
+    "previous_hour": "Heure précédente",
+    "last_message": "Dernier message",
+    "footnote": "Les « trames » sont des messages Zigbee bruts. L’« activité » correspond aux rappels explicites des capteurs en veille. Les données sont enregistrées au plus une fois toutes les cinq minutes.",
+    "no_devices": "Aucun appareil surveillé n’est actif.",
+    "frames": "trames",
+    "activity": "activité",
+    "resetting": "Réinitialisation…",
+    "reset_failed": "Échec de la réinitialisation :",
+    "reset_confirmation": "Réinitialiser toutes les statistiques de trafic Zigbee ? Cette action est irréversible.",
+    "tab_traffic": "Trafic",
+    "tab_rejoins": "Reconnexions"
   }
 }

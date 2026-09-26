@@ -1,8 +1,8 @@
 {
   "settings": {
-    "title": "Historial de reconexiones",
-    "eyebrow": "Moes",
-    "intro": "Registra cuándo un dispositivo se reconecta a la red Zigbee tras un corte de energía.",
+    "title": "Tráfico Zigbee",
+    "eyebrow": "Moes · EP1 supervisado",
+    "intro": "Una fila por dispositivo físico. Los dispositivos multicanal se cuentan una vez mediante su dispositivo principal.",
     "refresh": "Actualizar ahora",
     "waiting_for_data": "Esperando datos…",
     "device": "Dispositivo",
@@ -20,6 +20,29 @@
     "total_rejoins": "Reconexiones totales",
     "devices_with_rejoins": "Dispositivos afectados",
     "last_rejoin": "Última reconexión",
-    "no_rejoins": "Aún no se registraron reconexiones."
+    "no_rejoins": "Aún no se registraron reconexiones.",
+    "reset": "Restablecer estadísticas",
+    "physical_devices": "Dispositivos físicos",
+    "messages_24h": "Mensajes · 24 h",
+    "messages_current_hour": "Mensajes · hora actual",
+    "most_active_current_hour": "Más activo · hora actual",
+    "sort_by": "Ordenar por",
+    "sort_name": "Nombre A–Z",
+    "sort_24h": "Más mensajes · 24 h",
+    "sort_current_hour": "Más mensajes · hora actual",
+    "sort_previous_hour": "Más mensajes · hora anterior",
+    "sort_recent": "Actividad más reciente",
+    "current_hour": "Hora actual",
+    "previous_hour": "Hora anterior",
+    "last_message": "Último mensaje",
+    "footnote": "“Tramas” son mensajes Zigbee sin procesar. “Actividad” representa devoluciones de llamada explícitas de sensores inactivos. Los datos se guardan como máximo una vez cada cinco minutos.",
+    "no_devices": "No hay dispositivos supervisados activos.",
+    "frames": "tramas",
+    "activity": "actividad",
+    "resetting": "Restableciendo…",
+    "reset_failed": "Error al restablecer:",
+    "reset_confirmation": "¿Restablecer todas las estadísticas de tráfico Zigbee? Esta acción no se puede deshacer.",
+    "tab_traffic": "Tráfico",
+    "tab_rejoins": "Reconexiones"
   }
 }

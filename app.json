@@ -94,9 +94,13 @@
     "email": "g.machado@me.com"
   },
   "api": {
-    "getRejoinStats": {
+    "getMessageStats": {
       "method": "GET",
-      "path": "/rejoin-stats"
+      "path": "/message-stats"
+    },
+    "resetMessageStats": {
+      "method": "POST",
+      "path": "/message-stats/reset"
     },
     "resetRejoinStats": {
       "method": "POST",

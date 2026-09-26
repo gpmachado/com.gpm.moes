@@ -46,6 +46,7 @@ class RadarSensorMmwaveDevice extends TuyaSpecificClusterDevice {
     this._presenceKeepTime = null;
     this._occupied = null;
 
+    await this._installAvailability();
     await RejoinManager.watchAnnounceFrame(this);
 
     const ep = this.zclNode?.endpoints?.[this.tuyaEndpoint];

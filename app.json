@@ -232,6 +232,102 @@
     ],
     "triggers": [
       {
+        "id": "moes_dimmer_3_gang_availability_turned_on",
+        "title": {
+          "en": "Became available",
+          "de": "Wurde verfügbar",
+          "es": "Pasó a estar disponible",
+          "it": "Disponibile",
+          "fr": "Est devenu disponible"
+        },
+        "hint": {
+          "en": "Fires when this device becomes available.",
+          "de": "Wird ausgelöst, wenn dieses Gerät verfügbar wird.",
+          "es": "Se activa cuando este dispositivo pasa a estar disponible.",
+          "it": "Si attiva quando questo dispositivo diventa disponibile.",
+          "fr": "Se déclenche lorsque cet appareil devient disponible."
+        },
+        "tokens": [
+          {
+            "name": "device_name",
+            "type": "string",
+            "title": {
+              "en": "Device name",
+              "de": "Gerätename",
+              "es": "Nombre del dispositivo",
+              "it": "Nome del dispositivo",
+              "fr": "Nom de l’appareil"
+            }
+          },
+          {
+            "name": "timestamp",
+            "type": "string",
+            "title": {
+              "en": "Timestamp",
+              "de": "Zeitstempel",
+              "es": "Marca de tiempo",
+              "it": "Data e ora",
+              "fr": "Horodatage"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=moes_dimmer_3_gang"
+          }
+        ]
+      },
+      {
+        "id": "moes_dimmer_3_gang_availability_turned_off",
+        "title": {
+          "en": "Became unavailable",
+          "de": "Wurde nicht verfügbar",
+          "es": "Pasó a no estar disponible",
+          "it": "Non più disponibile",
+          "fr": "Est devenu indisponible"
+        },
+        "hint": {
+          "en": "Fires when this device becomes unavailable.",
+          "de": "Wird ausgelöst, wenn dieses Gerät nicht mehr verfügbar ist.",
+          "es": "Se activa cuando este dispositivo deja de estar disponible.",
+          "it": "Si attiva quando questo dispositivo non è più disponibile.",
+          "fr": "Se déclenche lorsque cet appareil devient indisponible."
+        },
+        "tokens": [
+          {
+            "name": "device_name",
+            "type": "string",
+            "title": {
+              "en": "Device name",
+              "de": "Gerätename",
+              "es": "Nombre del dispositivo",
+              "it": "Nome del dispositivo",
+              "fr": "Nom de l’appareil"
+            }
+          },
+          {
+            "name": "timestamp",
+            "type": "string",
+            "title": {
+              "en": "Timestamp",
+              "de": "Zeitstempel",
+              "es": "Marca de tiempo",
+              "it": "Data e ora",
+              "fr": "Horodatage"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=moes_dimmer_3_gang"
+          }
+        ]
+      },
+      {
         "id": "moes_dimmer_3_gang_device_rejoined",
         "title": {
           "en": "Reconnected after power cut",
@@ -252,6 +348,102 @@
             "type": "device",
             "name": "device",
             "filter": "driver_id=moes_dimmer_3_gang"
+          }
+        ]
+      },
+      {
+        "id": "moes_radar_sensor_mmwave_availability_turned_on",
+        "title": {
+          "en": "Became available",
+          "de": "Wurde verfügbar",
+          "es": "Pasó a estar disponible",
+          "it": "Disponibile",
+          "fr": "Est devenu disponible"
+        },
+        "hint": {
+          "en": "Fires when this device becomes available.",
+          "de": "Wird ausgelöst, wenn dieses Gerät verfügbar wird.",
+          "es": "Se activa cuando este dispositivo pasa a estar disponible.",
+          "it": "Si attiva quando questo dispositivo diventa disponibile.",
+          "fr": "Se déclenche lorsque cet appareil devient disponible."
+        },
+        "tokens": [
+          {
+            "name": "device_name",
+            "type": "string",
+            "title": {
+              "en": "Device name",
+              "de": "Gerätename",
+              "es": "Nombre del dispositivo",
+              "it": "Nome del dispositivo",
+              "fr": "Nom de l’appareil"
+            }
+          },
+          {
+            "name": "timestamp",
+            "type": "string",
+            "title": {
+              "en": "Timestamp",
+              "de": "Zeitstempel",
+              "es": "Marca de tiempo",
+              "it": "Data e ora",
+              "fr": "Horodatage"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=moes_radar_sensor_mmwave"
+          }
+        ]
+      },
+      {
+        "id": "moes_radar_sensor_mmwave_availability_turned_off",
+        "title": {
+          "en": "Became unavailable",
+          "de": "Wurde nicht verfügbar",
+          "es": "Pasó a no estar disponible",
+          "it": "Non più disponibile",
+          "fr": "Est devenu indisponible"
+        },
+        "hint": {
+          "en": "Fires when this device becomes unavailable.",
+          "de": "Wird ausgelöst, wenn dieses Gerät nicht mehr verfügbar ist.",
+          "es": "Se activa cuando este dispositivo deja de estar disponible.",
+          "it": "Si attiva quando questo dispositivo non è più disponibile.",
+          "fr": "Se déclenche lorsque cet appareil devient indisponible."
+        },
+        "tokens": [
+          {
+            "name": "device_name",
+            "type": "string",
+            "title": {
+              "en": "Device name",
+              "de": "Gerätename",
+              "es": "Nombre del dispositivo",
+              "it": "Nome del dispositivo",
+              "fr": "Nom de l’appareil"
+            }
+          },
+          {
+            "name": "timestamp",
+            "type": "string",
+            "title": {
+              "en": "Timestamp",
+              "de": "Zeitstempel",
+              "es": "Marca de tiempo",
+              "it": "Data e ora",
+              "fr": "Horodatage"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=moes_radar_sensor_mmwave"
           }
         ]
       },

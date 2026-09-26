@@ -1,6 +1,14 @@
 {
   "triggers": [
     {
+      "$extends": "availability_turned_on",
+      "$id": "moes_radar_sensor_mmwave_availability_turned_on"
+    },
+    {
+      "$extends": "availability_turned_off",
+      "$id": "moes_radar_sensor_mmwave_availability_turned_off"
+    },
+    {
       "$extends": "device_rejoined",
       "$id": "moes_radar_sensor_mmwave_device_rejoined"
     }

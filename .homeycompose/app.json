@@ -1,6 +1,6 @@
 {
   "id": "com.gpm.moes",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "compatibility": ">=12.4.0",
   "sdk": 3,
   "platforms": [
@@ -24,11 +24,61 @@
     "appliances"
   ],
   "tags": {
-    "en": ["zigbee", "moes", "linptech", "dimmer", "fan controller", "radar", "presence", "mmwave", "sensor"],
-    "es": ["zigbee", "moes", "linptech", "atenuador", "controlador de ventilador", "radar", "presencia", "mmwave", "sensor"],
-    "it": ["zigbee", "moes", "linptech", "dimmer", "regolatore ventilatore", "radar", "presenza", "mmwave", "sensore"],
-    "de": ["zigbee", "moes", "linptech", "dimmer", "lüfterregler", "radar", "präsenz", "mmwave", "sensor"],
-    "fr": ["zigbee", "moes", "linptech", "variateur", "contrôleur de ventilateur", "radar", "présence", "mmwave", "capteur"]
+    "en": [
+      "zigbee",
+      "moes",
+      "linptech",
+      "dimmer",
+      "fan controller",
+      "radar",
+      "presence",
+      "mmwave",
+      "sensor"
+    ],
+    "es": [
+      "zigbee",
+      "moes",
+      "linptech",
+      "atenuador",
+      "controlador de ventilador",
+      "radar",
+      "presencia",
+      "mmwave",
+      "sensor"
+    ],
+    "it": [
+      "zigbee",
+      "moes",
+      "linptech",
+      "dimmer",
+      "regolatore ventilatore",
+      "radar",
+      "presenza",
+      "mmwave",
+      "sensore"
+    ],
+    "de": [
+      "zigbee",
+      "moes",
+      "linptech",
+      "dimmer",
+      "lüfterregler",
+      "radar",
+      "präsenz",
+      "mmwave",
+      "sensor"
+    ],
+    "fr": [
+      "zigbee",
+      "moes",
+      "linptech",
+      "variateur",
+      "contrôleur de ventilateur",
+      "radar",
+      "présence",
+      "mmwave",
+      "capteur"
+    ]
   },
   "brandColor": "#BAA586",
   "support": "mailto:g.machado@me.com",

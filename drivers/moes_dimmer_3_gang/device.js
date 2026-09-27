@@ -83,6 +83,7 @@ class MoesDimmer3Gang extends TuyaSpecificClusterDevice {
     // Tuya cluster listeners are shared — attach only once, on the main device
     if (this._isMain) {
       await this._installAvailability();
+      await RejoinManager.watchBootSignals(this);
       this._setupTuyaListeners(zclNode);
       try { zclNode.endpoints[1].bind('time', new TimeServerBoundCluster()); } catch {}
     }

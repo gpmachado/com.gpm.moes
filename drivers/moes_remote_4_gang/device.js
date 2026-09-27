@@ -14,6 +14,7 @@
 const { ZigBeeDevice } = require('homey-zigbeedriver');
 const { CLUSTER } = require('zigbee-clusters');
 const { TimeServerBoundCluster } = require('../../lib/TimeCluster');
+const { FrameMiddleware, FRAME_PRIORITY } = require('../../lib/FrameMiddleware');
 
 const ACTION = { 0: 'single', 1: 'double', 2: 'long' };
 const ACTION_LABEL = { single: '1 Click', double: '2 Clicks', long: 'Long Press' };
@@ -49,26 +50,19 @@ class MoesRemote4Gang extends ZigBeeDevice {
 
     try { zclNode.endpoints[1].bind('time', new TimeServerBoundCluster()); } catch {}
 
-    // Wrap node.handleFrame (don't replace it): intercept the button commands on
-    // cluster 6, but forward every other frame to the original handler so battery
-    // reports (cluster 1) and normal ZCL processing keep working.
-    // Guarded against re-installing on re-init: this.node can be reused by the
-    // framework across an onNodeInit re-run, and wrapping handleFrame again on
-    // the same node would stack interceptors indefinitely.
+    // Intercept the button commands on cluster 6 through the node's FrameMiddleware,
+    // swallowing them (return false) so zigbee-clusters doesn't also process them; every
+    // other frame (battery reports on cluster 1, normal ZCL) continues down the chain.
+    // Node-level id: a re-init replaces the handler instead of stacking one, and the handler
+    // reaches the current device instance through the node, not the first instance's closure.
     const node = await this.homey.zigbee.getNode(this);
-    if (node._moes4gFrameHookInstalled) {
-      this.log('handleFrame hook already installed (shared node)');
-    } else {
-      node._moes4gFrameHookInstalled = true;
-      const original = typeof node.handleFrame === 'function' ? node.handleFrame.bind(node) : null;
-      node.handleFrame = (endpointId, clusterId, frame, meta) => {
-        if (clusterId === 6) {
-          this._parseButton(endpointId, frame);
-          return false;
-        }
-        return original ? original(endpointId, clusterId, frame, meta) : false;
-      };
-    }
+    node._moes4gDevice = this;
+    FrameMiddleware.for(node).register('moes4g-buttons', FRAME_PRIORITY.CLUSTER_REPORT,
+      (endpointId, clusterId, frame) => {
+        if (clusterId !== 6) return undefined;
+        node._moes4gDevice?._parseButton(endpointId, frame);
+        return false;
+      });
   }
 
   _parseButton(ep, frame) {

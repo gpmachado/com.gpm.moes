@@ -4,5 +4,8 @@
   },
   "1.0.1": {
     "en": "Add Avaibility."
+  },
+  "1.0.2": {
+    "en": "mproved: power-cut (rejoin) detection on the 3-gang dimmer is faster and no longer misses cuts. Fixed: 4-gang remote buttons could stop responding after an app restart."
   }
 }

@@ -3,9 +3,12 @@
     "en": "First version!"
   },
   "1.0.1": {
-    "en": "Add Avaibility."
+    "en": "Added device availability tracking."
   },
   "1.0.2": {
-    "en": "mproved: power-cut (rejoin) detection on the 3-gang dimmer is faster and no longer misses cuts. Fixed: 4-gang remote buttons could stop responding after an app restart."
+    "en": "Improved: power-cut (rejoin) detection on the 3-gang dimmer is faster and no longer misses cuts. Fixed: 4-gang remote buttons could stop responding after an app restart."
+  },
+  "1.0.3": {
+    "en": "Improved: devices are now marked unavailable after 5 failed commands or 25 minutes of silence, and come back on the first message. Added a switch in the app settings to turn availability tracking off."
   }
 }

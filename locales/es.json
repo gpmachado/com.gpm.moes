@@ -35,7 +35,7 @@
     "current_hour": "Hora actual",
     "previous_hour": "Hora anterior",
     "last_message": "Último mensaje",
-    "footnote": "“Tramas” son mensajes Zigbee sin procesar. “Actividad” representa devoluciones de llamada explícitas de sensores inactivos. Los datos se guardan como máximo una vez cada cinco minutos.",
+    "footnote": "Los “frames” son mensajes Zigbee sin procesar. Los datos se guardan en memoria y se reinician cuando la app se reinicia. El mando de 4 botones (batería) no tiene seguimiento de disponibilidad.",
     "no_devices": "No hay dispositivos supervisados activos.",
     "frames": "tramas",
     "activity": "actividad",
@@ -43,6 +43,10 @@
     "reset_failed": "Error al restablecer:",
     "reset_confirmation": "¿Restablecer todas las estadísticas de tráfico Zigbee? Esta acción no se puede deshacer.",
     "tab_traffic": "Tráfico",
-    "tab_rejoins": "Reconexiones"
+    "tab_rejoins": "Reconexiones",
+    "availability_switch": "Seguimiento de disponibilidad",
+    "availability_switch_hint": "Si está desactivado, los dispositivos nunca se marcan como no disponibles: las estadísticas de Tráfico y Reconexiones siguen registrándose y cualquier dispositivo no disponible se restaura de inmediato.",
+    "availability_switch_failed": "Error al cambiar:",
+    "availability_switch_partial_restore": "Desactivado, pero {n} dispositivo(s) no pudieron restaurarse de inmediato; deberían recuperarse solos pronto."
   }
 }

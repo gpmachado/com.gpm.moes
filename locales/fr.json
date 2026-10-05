@@ -35,7 +35,7 @@
     "current_hour": "Heure en cours",
     "previous_hour": "Heure précédente",
     "last_message": "Dernier message",
-    "footnote": "Les « trames » sont des messages Zigbee bruts. L’« activité » correspond aux rappels explicites des capteurs en veille. Les données sont enregistrées au plus une fois toutes les cinq minutes.",
+    "footnote": "Les « trames » sont des messages Zigbee bruts. Les données sont conservées en mémoire et repartent de zéro au redémarrage de l’app. La télécommande 4 boutons (pile) n’a pas de suivi de disponibilité.",
     "no_devices": "Aucun appareil surveillé n’est actif.",
     "frames": "trames",
     "activity": "activité",
@@ -43,6 +43,10 @@
     "reset_failed": "Échec de la réinitialisation :",
     "reset_confirmation": "Réinitialiser toutes les statistiques de trafic Zigbee ? Cette action est irréversible.",
     "tab_traffic": "Trafic",
-    "tab_rejoins": "Reconnexions"
+    "tab_rejoins": "Reconnexions",
+    "availability_switch": "Suivi de disponibilité",
+    "availability_switch_hint": "Désactivé, aucun appareil n’est jamais marqué indisponible – les statistiques de Trafic et de Reconnexions continuent d’être enregistrées, et tout appareil indisponible est rétabli immédiatement.",
+    "availability_switch_failed": "Échec de la modification :",
+    "availability_switch_partial_restore": "Désactivé, mais {n} appareil(s) n’ont pas pu être rétablis immédiatement – ils devraient se rétablir d’eux-mêmes sous peu."
   }
 }

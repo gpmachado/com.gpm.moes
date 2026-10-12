@@ -10,5 +10,8 @@
   },
   "1.0.3": {
     "en": "Improved: devices are now marked unavailable after 5 failed commands or 25 minutes of silence, and come back on the first message. Added a switch in the app settings to turn availability tracking off."
+  },
+  "1.0.4": {
+    "en": "Fixed: devices now get the Homey's local time instead of UTC. Fixed: rare errors on the 3-gang dimmer at start-up and with speed debouncing, and on the 4-gang remote after an app restart. Removed unused code."
   }
 }

@@ -51,7 +51,7 @@ class RadarSensorMmwaveDevice extends TuyaSpecificClusterDevice {
 
     const ep = this.zclNode?.endpoints?.[this.tuyaEndpoint];
 
-    try { ep?.bind('time', new TimeServerBoundCluster()); } catch {}
+    try { ep?.bind('time', new TimeServerBoundCluster({ getTimeZone: () => this.homey.clock.getTimezone() })); } catch {}
 
     // Same initialization read as Zigbee2MQTT's configureMagicPacket. This
     // TS0225 can keep sending IAS occupancy while its illuminance and 0xE002

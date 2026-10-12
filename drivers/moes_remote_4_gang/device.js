@@ -48,7 +48,7 @@ class MoesRemote4Gang extends ZigBeeDevice {
     this._buttonTrigger = this.homey.flow.getDeviceTriggerCard('moes_remote_4_gang_button')
       .registerRunListener((args, state) => Number(args.button) === state.ep && args.action === state.pressType);
 
-    try { zclNode.endpoints[1].bind('time', new TimeServerBoundCluster()); } catch {}
+    try { zclNode.endpoints[1].bind('time', new TimeServerBoundCluster({ getTimeZone: () => this.homey.clock.getTimezone() })); } catch {}
 
     // Intercept the button commands on cluster 6 through the node's FrameMiddleware,
     // swallowing them (return false) so zigbee-clusters doesn't also process them; every

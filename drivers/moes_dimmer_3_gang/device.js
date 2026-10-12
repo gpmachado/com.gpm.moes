@@ -85,7 +85,7 @@ class MoesDimmer3Gang extends TuyaSpecificClusterDevice {
       await this._installAvailability();
       await RejoinManager.watchBootSignals(this);
       this._setupTuyaListeners(zclNode);
-      try { zclNode.endpoints[1].bind('time', new TimeServerBoundCluster()); } catch {}
+      try { zclNode.endpoints[1].bind('time', new TimeServerBoundCluster({ getTimeZone: () => this.homey.clock.getTimezone() })); } catch {}
     }
 
     this.registerCapabilityListener('onoff', v => this._onCapabilityOnOff(v));

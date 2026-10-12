@@ -212,11 +212,11 @@ class MoesDimmer3Gang extends TuyaSpecificClusterDevice {
     this._pendingDimWire = wire;
 
     if (this.getSetting('enableDebouncing')) {
-      clearTimeout(this._dimDebounceTimer);
+      this.homey.clearTimeout(this._dimDebounceTimer);
       const delay = this.getSetting('debounceDelay') ?? 800;
       this._dimDebounceTimer = this.homey.setTimeout(async () => {
-        await this._applyDim(this._pendingDimWire);
         this._dimDebounceTimer = null;
+        await this._applyDim(this._pendingDimWire).catch(() => {}); // _applyDim logs the error
       }, delay);
     } else {
       await this._applyDim(wire);
@@ -301,6 +301,8 @@ class MoesDimmer3Gang extends TuyaSpecificClusterDevice {
 
   /** Returns true if this gang instance owns the given DP */
   _isMyDp(dp) {
+    // A gang still in onNodeInit has no _gangDp yet; reports can arrive then (boot dump).
+    if (!this._gangDp) return false;
     const { sw, dim, min, max } = this._gangDp;
     if (dp === sw || dp === dim || dp === min || dp === max) return true;
     if (this._isMain && (dp === DP.POWER_ON || dp === DP.BACKLIGHT)) return true;
@@ -320,7 +322,7 @@ class MoesDimmer3Gang extends TuyaSpecificClusterDevice {
   // (user removal) via TuyaSpecificClusterDevice. Clearing the timer here
   // prevents a leaked debounce timeout on app restart.
   async _teardown() {
-    clearTimeout(this._dimDebounceTimer);
+    this.homey.clearTimeout(this._dimDebounceTimer);
     await super._teardown();
   }
 

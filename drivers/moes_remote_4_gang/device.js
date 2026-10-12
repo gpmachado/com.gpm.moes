@@ -96,8 +96,8 @@ class MoesRemote4Gang extends ZigBeeDevice {
     this.setCapabilityValue(`button${ep}_action`, label).catch(this.error);
 
     const existingTimer = this._idleTimers.get(ep);
-    if (existingTimer) clearTimeout(existingTimer);
-    this._idleTimers.set(ep, setTimeout(() => {
+    if (existingTimer) this.homey.clearTimeout(existingTimer);
+    this._idleTimers.set(ep, this.homey.setTimeout(() => {
       this.setCapabilityValue(`button${ep}_action`, IDLE_LABEL).catch(this.error);
     }, IDLE_TIMEOUT_MS));
 
@@ -116,7 +116,7 @@ class MoesRemote4Gang extends ZigBeeDevice {
 
   onDeleted() {
     if (this._idleTimers) {
-      for (const timer of this._idleTimers.values()) clearTimeout(timer);
+      for (const timer of this._idleTimers.values()) this.homey.clearTimeout(timer);
     }
     this.log('Moes 4 Gang Wall Remote removed');
   }

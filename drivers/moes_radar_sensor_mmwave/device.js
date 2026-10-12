@@ -2,7 +2,6 @@
 
 const TuyaSpecificClusterDevice = require('../../lib/TuyaSpecificClusterDevice');
 const RejoinManager = require('../../lib/RejoinManager');
-const { TimeServerBoundCluster } = require('../../lib/TimeCluster');
 const IASZoneHelper = require('../../lib/IASZoneHelper');
 const { writeAttributesVerbose } = require('../../lib/zclDebug');
 
@@ -51,8 +50,6 @@ class RadarSensorMmwaveDevice extends TuyaSpecificClusterDevice {
 
     const ep = this.zclNode?.endpoints?.[this.tuyaEndpoint];
 
-    try { ep?.bind('time', new TimeServerBoundCluster({ getTimeZone: () => this.homey.clock.getTimezone() })); } catch {}
-
     // Same initialization read as Zigbee2MQTT's configureMagicPacket. This
     // TS0225 can keep sending IAS occupancy while its illuminance and 0xE002
     // attribute reports remain dormant until this Basic-cluster read occurs.
@@ -68,12 +65,6 @@ class RadarSensorMmwaveDevice extends TuyaSpecificClusterDevice {
         tuyaCluster.on(event, this._onDataPoint);
       }
 
-      this._onTimeRequest = request => {
-        this.sendTimeResponse(request, { waitForResponse: false })
-          .catch(error => this.error('[mmWave] Time response failed:', error.message));
-      };
-      tuyaCluster.on('timeRequest', this._onTimeRequest);
-
       this.homey.setTimeout(() => {
         tuyaCluster.dataQuery({}, { waitForResponse: false })
           .catch(error => this.log('[mmWave] Data query deferred:', error.message));
@@ -87,7 +78,6 @@ class RadarSensorMmwaveDevice extends TuyaSpecificClusterDevice {
       endpointId: this.tuyaEndpoint,
       sendEnrollOnInit: true,
       readInitialState: true,
-      configureCieAddress: false,
       onStatus: (zoneStatus, ctx) => {
         this.log(`[mmWave] IAS zoneStatus [${ctx.source}]:`, zoneStatus);
         const occupied = IASZoneHelper.hasAlarm(zoneStatus);
@@ -457,9 +447,6 @@ class RadarSensorMmwaveDevice extends TuyaSpecificClusterDevice {
       for (const event of ['datapoint', 'reporting', 'response', 'reportingConfiguration']) {
         tuyaCluster.removeListener(event, this._onDataPoint);
       }
-    }
-    if (tuyaCluster && this._onTimeRequest) {
-      tuyaCluster.removeListener('timeRequest', this._onTimeRequest);
     }
     await super._teardown();
   }

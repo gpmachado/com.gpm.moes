@@ -4,4 +4,5 @@ analise/
 *.pcapng
 .claude/
 .*
+logs/
 test/

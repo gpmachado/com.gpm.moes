@@ -5,4 +5,5 @@
 **/.DS_Store
 *.log
 /analise/
+/logs/
 availability_manager_analysis.md
